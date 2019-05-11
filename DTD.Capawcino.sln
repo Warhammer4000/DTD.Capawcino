@@ -5,6 +5,16 @@ VisualStudioVersion = 15.0.28306.52
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTD.Capawcino.App", "DTD.Capawcino.App\DTD.Capawcino.App.csproj", "{92E32EB3-9F38-4B04-912D-81DC8E7BB1A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTD.Capawcino.Entities", "DTD.Capawcino.Entities\DTD.Capawcino.Entities.csproj", "{0A70CC67-9A78-4BCE-A7AB-0F81129A245D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTD.Capawcino.DatabaseManager", "DTD.Capawcino.DatabaseManager\DTD.Capawcino.DatabaseManager.csproj", "{33FE2EAA-FDC3-41A1-9AC8-1E6572BF6FA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTD.CapawCino.Test", "DTD.CapawCino.Test\DTD.CapawCino.Test.csproj", "{D1C5A09D-351C-4A48-BC4B-9ED35619CC44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTD.Capawcino.UIExtra", "DTD.Capawcino.UIExtra\DTD.Capawcino.UIExtra.csproj", "{2577CA7F-A8CF-4FDB-9ACF-A8D4AE8EF3FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTD.Capawcino.BusinessLogic", "DTD.Capawcino.BusinessLogic\DTD.Capawcino.BusinessLogic.csproj", "{9014691B-C012-47AB-BB68-075044A3ABCF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +25,26 @@ Global
 		{92E32EB3-9F38-4B04-912D-81DC8E7BB1A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92E32EB3-9F38-4B04-912D-81DC8E7BB1A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92E32EB3-9F38-4B04-912D-81DC8E7BB1A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A70CC67-9A78-4BCE-A7AB-0F81129A245D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A70CC67-9A78-4BCE-A7AB-0F81129A245D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A70CC67-9A78-4BCE-A7AB-0F81129A245D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A70CC67-9A78-4BCE-A7AB-0F81129A245D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33FE2EAA-FDC3-41A1-9AC8-1E6572BF6FA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33FE2EAA-FDC3-41A1-9AC8-1E6572BF6FA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33FE2EAA-FDC3-41A1-9AC8-1E6572BF6FA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33FE2EAA-FDC3-41A1-9AC8-1E6572BF6FA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1C5A09D-351C-4A48-BC4B-9ED35619CC44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1C5A09D-351C-4A48-BC4B-9ED35619CC44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1C5A09D-351C-4A48-BC4B-9ED35619CC44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1C5A09D-351C-4A48-BC4B-9ED35619CC44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2577CA7F-A8CF-4FDB-9ACF-A8D4AE8EF3FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2577CA7F-A8CF-4FDB-9ACF-A8D4AE8EF3FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2577CA7F-A8CF-4FDB-9ACF-A8D4AE8EF3FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2577CA7F-A8CF-4FDB-9ACF-A8D4AE8EF3FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9014691B-C012-47AB-BB68-075044A3ABCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9014691B-C012-47AB-BB68-075044A3ABCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9014691B-C012-47AB-BB68-075044A3ABCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9014691B-C012-47AB-BB68-075044A3ABCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

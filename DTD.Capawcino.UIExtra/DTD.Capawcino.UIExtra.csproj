@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{92E32EB3-9F38-4B04-912D-81DC8E7BB1A9}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>DTD.Capawcino.App</RootNamespace>
-    <AssemblyName>DTD.Capawcino.App</AssemblyName>
+    <ProjectGuid>{2577CA7F-A8CF-4FDB-9ACF-A8D4AE8EF3FE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>DTD.Capawcino.UIExtra</RootNamespace>
+    <AssemblyName>DTD.Capawcino.UIExtra</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -39,99 +36,89 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DashboardForm.cs">
+    <Compile Include="BaseControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseControl.Designer.cs">
+      <DependentUpon>BaseControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DashboardForm.Designer.cs">
-      <DependentUpon>DashboardForm.cs</DependentUpon>
+    <Compile Include="BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
+    <Compile Include="Controls\ProductsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ProductsView.Designer.cs">
+      <DependentUpon>ProductsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <Compile Include="Form\ProductForm.Designer.cs">
+      <DependentUpon>ProductForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DashboardForm.resx">
-      <DependentUpon>DashboardForm.cs</DependentUpon>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SalesView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SalesView.Designer.cs">
+      <DependentUpon>SalesView.cs</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\ProductsView.resx">
+      <DependentUpon>ProductsView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <EmbeddedResource Include="Form\ProductForm.resx">
+      <DependentUpon>ProductForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Resources\add.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DTD.Capawcino.BusinessLogic\DTD.Capawcino.BusinessLogic.csproj">
-      <Project>{9014691b-c012-47ab-bb68-075044a3abcf}</Project>
-      <Name>DTD.Capawcino.BusinessLogic</Name>
+    <ProjectReference Include="..\DTD.Capawcino.DatabaseManager\DTD.Capawcino.DatabaseManager.csproj">
+      <Project>{33FE2EAA-FDC3-41A1-9AC8-1E6572BF6FA2}</Project>
+      <Name>DTD.Capawcino.DatabaseManager</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTD.Capawcino.Entities\DTD.Capawcino.Entities.csproj">
-      <Project>{0a70cc67-9a78-4bce-a7ab-0f81129a245d}</Project>
+      <Project>{0A70CC67-9A78-4BCE-A7AB-0F81129A245D}</Project>
       <Name>DTD.Capawcino.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DTD.Capawcino.UIExtra\DTD.Capawcino.UIExtra.csproj">
-      <Project>{2577ca7f-a8cf-4fdb-9acf-a8d4ae8ef3fe}</Project>
-      <Name>DTD.Capawcino.UIExtra</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\exit.png" />
+    <None Include="Resources\save.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\man.png" />
+    <None Include="Resources\image.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\lock.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\settings.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\archive.png" />
+    <None Include="Resources\basket.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\export.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\import.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Capawcino.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\burger.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\goods.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

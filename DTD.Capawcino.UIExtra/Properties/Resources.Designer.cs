@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DTD.Capawcino.App.Properties {
+namespace DTD.Capawcino.UIExtra.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace DTD.Capawcino.App.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DTD.Capawcino.App.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DTD.Capawcino.UIExtra.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,9 +63,9 @@ namespace DTD.Capawcino.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _lock {
+        internal static System.Drawing.Bitmap add {
             get {
-                object obj = ResourceManager.GetObject("lock", resourceCulture);
+                object obj = ResourceManager.GetObject("add", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,39 +73,9 @@ namespace DTD.Capawcino.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap archive {
+        internal static System.Drawing.Bitmap basket {
             get {
-                object obj = ResourceManager.GetObject("archive", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap burger {
-            get {
-                object obj = ResourceManager.GetObject("burger", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Capawcino {
-            get {
-                object obj = ResourceManager.GetObject("Capawcino", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap exit {
-            get {
-                object obj = ResourceManager.GetObject("exit", resourceCulture);
+                object obj = ResourceManager.GetObject("basket", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +93,9 @@ namespace DTD.Capawcino.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap goods {
+        internal static System.Drawing.Bitmap image {
             get {
-                object obj = ResourceManager.GetObject("goods", resourceCulture);
+                object obj = ResourceManager.GetObject("image", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,19 +113,9 @@ namespace DTD.Capawcino.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap man {
+        internal static System.Drawing.Bitmap save {
             get {
-                object obj = ResourceManager.GetObject("man", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap settings {
-            get {
-                object obj = ResourceManager.GetObject("settings", resourceCulture);
+                object obj = ResourceManager.GetObject("save", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
