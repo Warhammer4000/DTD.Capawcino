@@ -38,5 +38,12 @@ namespace DTD.Capawcino.App
             ContentPanel.Controls.Clear();
             ContentPanel.Controls.Add(productsView);
         }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            Owner.Show();
+            base.OnClosed(e);
+           
+        }
     }
 }

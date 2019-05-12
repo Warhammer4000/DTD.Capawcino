@@ -21,11 +21,22 @@ namespace DTD.Capawcino.UIExtra.Form
         {
             InitializeComponent();
             Product = new Product(){Name = "New Product"};
-       
+            EventSubscription();
        
         }
 
-      
+
+        private void EventSubscription()
+        {
+            NameTextBox.TextChanged += NameTextBox_TextChanged;
+            TypeComboBox.SelectedIndexChanged += TypeComboBox_SelectedIndexChanged;
+            ProfitValue.ValueChanged += ProfitValue_ValueChanged;
+            CostNumeric.ValueChanged += CostNumeric_ValueChanged;
+            Royalty.ValueChanged += Royalty_ValueChanged;
+            Percent.CheckedChanged += Percent_CheckedChanged;
+            Flat.CheckedChanged += Percent_CheckedChanged;
+        }
+
         private void UpdateComuptedData()
         {
             Total.Value = (decimal) Product.Total;
@@ -60,7 +71,7 @@ namespace DTD.Capawcino.UIExtra.Form
 
         private void TypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Product.ProductType = TypeComboBox.SelectedItem.ToString();
+            Product.ProductType = (ProductType) TypeComboBox.SelectedItem;
             UpdateComuptedData();
         }
 

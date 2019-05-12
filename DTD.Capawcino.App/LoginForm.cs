@@ -28,7 +28,9 @@ namespace DTD.Capawcino.App
             if (new CredentialManager().ValidateUser(UserName, Password))
             {
                 var dashboard = new DashboardForm {WindowState = FormWindowState.Maximized};
-                dashboard.ShowDialog();
+                dashboard.Show(this);
+                Hide();
+
             }
             else
             {

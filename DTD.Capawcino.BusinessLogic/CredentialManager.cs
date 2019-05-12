@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DTD.Capawcino.DatabaseManager;
 using DTD.Capawcino.Entities;
 using MongoDB.Driver;
+using Tag = DTD.Capawcino.Entities.Tag;
 
 namespace DTD.Capawcino.BusinessLogic
 {
@@ -40,9 +41,23 @@ namespace DTD.Capawcino.BusinessLogic
 
             if (!new DatabaseQueries().CollectionExists(DatabaseStrings.ProductTable))
             {
-                new CRUDManager().InsertRecord(DatabaseStrings.ProductTable, new Product());
+                new CRUDManager().InsertRecord(DatabaseStrings.ProductTable, new Product(){Name = "Default"});
             }
-           
+
+
+            if (!new DatabaseQueries().CollectionExists(DatabaseStrings.TypeTable))
+            {
+                new CRUDManager().InsertRecord(DatabaseStrings.TypeTable, new ProductType(){Name = "Default"});
+            }
+
+
+            if (!new DatabaseQueries().CollectionExists(DatabaseStrings.TagsTable))
+            {
+                new CRUDManager().InsertRecord(DatabaseStrings.TagsTable, new Tag() { Name = "Default" });
+            }
+
+
+
         }
 
 

@@ -18,6 +18,11 @@ namespace DTD.Capawcino.UIExtra.Controls
         {
             InitializeComponent();
             UpdateGrid();
+            if (Products.Count > 0)
+            {
+                SelectedProduct = Products[0];
+                InitializeData();
+            }
         }
 
         private void AddButton_Click(object sender, System.EventArgs e)
@@ -65,7 +70,7 @@ namespace DTD.Capawcino.UIExtra.Controls
             }
            
             NameTextBox.Text = SelectedProduct.Name;
-            TypeComboBox.Text = SelectedProduct.ProductType;
+            TypeComboBox.SelectedItem = SelectedProduct.ProductType;
             ProfitValue.Value = (decimal)SelectedProduct.ProfitValue;
             CostNumeric.Value = (decimal) SelectedProduct.Cost;
             Royalty.Value = (decimal) SelectedProduct.Royality;
@@ -127,7 +132,7 @@ namespace DTD.Capawcino.UIExtra.Controls
 
         private void TypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SelectedProduct.ProductType = TypeComboBox.SelectedItem.ToString();
+            SelectedProduct.ProductType = (ProductType) TypeComboBox.SelectedItem;
             UpdateComuptedData();
         }
 
@@ -167,7 +172,22 @@ namespace DTD.Capawcino.UIExtra.Controls
         }
 
 
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            if (SelectedProduct == null) return;
+            new CRUDManager().UpsertRecord(DatabaseStrings.ProductTable, SelectedProduct.Id, SelectedProduct);
+            UpdateGrid();
+        }
 
+        private void Deletebutton_Click(object sender, EventArgs e)
+        {
+            if (SelectedProduct == null) return;
+            if(MessageBox.Show(@"This will delete from Database",@"Are you sure?",MessageBoxButtons.OKCancel,MessageBoxIcon.Asterisk)!=DialogResult.OK)return;
+
+
+            new CRUDManager().DeleteRecord<Product>(DatabaseStrings.ProductTable, SelectedProduct.Id);
+            UpdateGrid();
+        }
 
         #endregion
 
@@ -182,18 +202,10 @@ namespace DTD.Capawcino.UIExtra.Controls
             InitializeData();
         }
 
-        private void SaveButton_Click(object sender, EventArgs e)
+        private void ProductConfigButton_Click(object sender, EventArgs e)
         {
-            if (SelectedProduct == null) return;
-            new CRUDManager().UpsertRecord(DatabaseStrings.ProductTable,SelectedProduct.Id,SelectedProduct);
-            UpdateGrid();
-        }
-
-        private void Deletebutton_Click(object sender, EventArgs e)
-        {
-            if(SelectedProduct==null)return;
-            new CRUDManager().DeleteRecord<Product>(DatabaseStrings.ProductTable,SelectedProduct.Id);
-            UpdateGrid();
+            ProductConfigForm productConfigForm=new ProductConfigForm();
+            productConfigForm.ShowDialog();
         }
     }
 }

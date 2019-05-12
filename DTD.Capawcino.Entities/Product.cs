@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 using MongoDB.Bson.Serialization.Attributes;
@@ -14,7 +15,8 @@ namespace DTD.Capawcino.Entities
 
 
         public string Name { get; set; }
-        public string ProductType { get; set; }
+        public ProductType ProductType { get; set; }
+        public List<Tag> TagsList { get; set; }
 
         [Browsable(false)] public string ImagePath { get; set; }
 
@@ -37,6 +39,6 @@ namespace DTD.Capawcino.Entities
 
         [BsonIgnore]  public float GrandTotal => Total + Vat;
 
-
+        
     }
 }
