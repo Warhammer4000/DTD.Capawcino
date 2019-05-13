@@ -132,5 +132,11 @@
   <ItemGroup>
     <None Include="Resources\wrench.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rubbish-bin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diskette.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

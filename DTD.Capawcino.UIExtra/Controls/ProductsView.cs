@@ -91,6 +91,7 @@ namespace DTD.Capawcino.UIExtra.Controls
             Royalty.ValueChanged += Royalty_ValueChanged;
             Percent.CheckedChanged += Percent_CheckedChanged;
             Flat.CheckedChanged += Percent_CheckedChanged;
+            DiscountNumeric.ValueChanged += DiscountNumeric_ValueChanged;
         }
 
 
@@ -103,12 +104,13 @@ namespace DTD.Capawcino.UIExtra.Controls
             Royalty.ValueChanged -= Royalty_ValueChanged;
             Percent.CheckedChanged -= Percent_CheckedChanged;
             Flat.CheckedChanged -= Percent_CheckedChanged;
+            DiscountNumeric.ValueChanged -= DiscountNumeric_ValueChanged;
         }
 
         private void UpdateComuptedData()
         {
             Total.Value = (decimal) SelectedProduct.Total;
-            VatNumeric.Value = (decimal) SelectedProduct.Vat;
+            DiscountNumeric.Value = (decimal) SelectedProduct.Discount;
             GrandTotalNumeric.Value = (decimal) SelectedProduct.GrandTotal;
             Profit.Value = (decimal)SelectedProduct.Profit;
             ProfitValue_ValueChanged(new object(), new EventArgs());
@@ -151,6 +153,15 @@ namespace DTD.Capawcino.UIExtra.Controls
             SelectedProduct.Royality = (float) Royalty.Value;
             UpdateComuptedData();
         }
+
+
+        private void DiscountNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            SelectedProduct.Discount = (float) DiscountNumeric.Value;
+            UpdateComuptedData();
+        }
+
+
 
         private void ProfitValue_ValueChanged(object sender, EventArgs e)
         {
@@ -207,5 +218,7 @@ namespace DTD.Capawcino.UIExtra.Controls
             ProductConfigForm productConfigForm=new ProductConfigForm();
             productConfigForm.ShowDialog();
         }
+
+       
     }
 }

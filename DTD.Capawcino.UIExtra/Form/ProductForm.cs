@@ -35,12 +35,13 @@ namespace DTD.Capawcino.UIExtra.Form
             Royalty.ValueChanged += Royalty_ValueChanged;
             Percent.CheckedChanged += Percent_CheckedChanged;
             Flat.CheckedChanged += Percent_CheckedChanged;
+            DiscountNumeric.ValueChanged += DiscountNumeric_ValueChanged;
         }
 
         private void UpdateComuptedData()
         {
             Total.Value = (decimal) Product.Total;
-            VatNumeric.Value = (decimal) Product.Vat;
+            DiscountNumeric.Value = (decimal) Product.Discount;
             GrandTotalNumeric.Value = (decimal) Product.GrandTotal;
             Profit.Value = (decimal) Product.Profit;
             ProfitValue_ValueChanged(new Object(),new EventArgs());
@@ -110,6 +111,12 @@ namespace DTD.Capawcino.UIExtra.Form
         {
             UpdateComuptedData();
             
+        }
+
+        private void DiscountNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            Product.Discount = (float)DiscountNumeric.Value;
+            UpdateComuptedData();
         }
     }
 }

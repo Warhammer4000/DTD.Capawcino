@@ -37,7 +37,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.GrandTotalNumeric = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
-            this.VatNumeric = new System.Windows.Forms.NumericUpDown();
+            this.DiscountNumeric = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.Total = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
@@ -60,7 +60,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrandTotalNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.VatNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DiscountNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Total)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Royalty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CostNumeric)).BeginInit();
@@ -160,7 +160,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.GrandTotalNumeric, 1, 9);
             this.tableLayoutPanel1.Controls.Add(this.label8, 0, 9);
-            this.tableLayoutPanel1.Controls.Add(this.VatNumeric, 1, 8);
+            this.tableLayoutPanel1.Controls.Add(this.DiscountNumeric, 1, 8);
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.Total, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 7);
@@ -225,21 +225,19 @@
             this.label8.Text = "Grand Total";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // VatNumeric
+            // DiscountNumeric
             // 
-            this.VatNumeric.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.VatNumeric.Enabled = false;
-            this.VatNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VatNumeric.Location = new System.Drawing.Point(172, 341);
-            this.VatNumeric.Maximum = new decimal(new int[] {
+            this.DiscountNumeric.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DiscountNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DiscountNumeric.Location = new System.Drawing.Point(172, 341);
+            this.DiscountNumeric.Maximum = new decimal(new int[] {
             9999990,
             0,
             0,
             0});
-            this.VatNumeric.Name = "VatNumeric";
-            this.VatNumeric.ReadOnly = true;
-            this.VatNumeric.Size = new System.Drawing.Size(155, 29);
-            this.VatNumeric.TabIndex = 15;
+            this.DiscountNumeric.Name = "DiscountNumeric";
+            this.DiscountNumeric.Size = new System.Drawing.Size(155, 29);
+            this.DiscountNumeric.TabIndex = 15;
             // 
             // label7
             // 
@@ -251,7 +249,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(155, 35);
             this.label7.TabIndex = 14;
-            this.label7.Text = "+ Vat(15%)";
+            this.label7.Text = "Discount";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Total
@@ -495,7 +493,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrandTotalNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.VatNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DiscountNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Total)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Royalty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CostNumeric)).EndInit();
@@ -521,7 +519,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.NumericUpDown GrandTotalNumeric;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.NumericUpDown VatNumeric;
+        private System.Windows.Forms.NumericUpDown DiscountNumeric;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown Total;
         private System.Windows.Forms.Label label6;
