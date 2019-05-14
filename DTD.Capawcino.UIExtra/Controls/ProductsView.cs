@@ -92,6 +92,8 @@ namespace DTD.Capawcino.UIExtra.Controls
             Percent.CheckedChanged += Percent_CheckedChanged;
             Flat.CheckedChanged += Percent_CheckedChanged;
             DiscountNumeric.ValueChanged += DiscountNumeric_ValueChanged;
+            DatagridView.CellMouseClick += DatagridView_CellMouseClick;
+            DatagridView.CellValueChanged += DatagridView_CellValueChanged;
         }
 
 
@@ -105,6 +107,8 @@ namespace DTD.Capawcino.UIExtra.Controls
             Percent.CheckedChanged -= Percent_CheckedChanged;
             Flat.CheckedChanged -= Percent_CheckedChanged;
             DiscountNumeric.ValueChanged -= DiscountNumeric_ValueChanged;
+            DatagridView.CellMouseClick -= DatagridView_CellMouseClick;
+            DatagridView.CellValueChanged -= DatagridView_CellValueChanged;
         }
 
         private void UpdateComuptedData()

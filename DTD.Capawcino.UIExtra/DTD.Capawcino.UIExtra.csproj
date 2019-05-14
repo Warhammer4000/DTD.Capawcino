@@ -54,6 +54,12 @@
     <Compile Include="BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ClientsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ClientsView.Designer.cs">
+      <DependentUpon>ClientsView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ProductsView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -78,17 +84,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SalesView.cs">
+    <Compile Include="Controls\SalesView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SalesView.Designer.cs">
+    <Compile Include="Controls\SalesView.Designer.cs">
       <DependentUpon>SalesView.cs</DependentUpon>
     </Compile>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\ClientsView.resx">
+      <DependentUpon>ClientsView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ProductsView.resx">
       <DependentUpon>ProductsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SalesView.resx">
+      <DependentUpon>SalesView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\ProductConfigForm.resx">
       <DependentUpon>ProductConfigForm.cs</DependentUpon>
@@ -137,6 +149,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\diskette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

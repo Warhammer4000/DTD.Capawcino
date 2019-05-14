@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.MenuStrip = new System.Windows.Forms.MenuStrip();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.SalesButton = new System.Windows.Forms.Button();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +43,11 @@
             this.excelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jSONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.SalesButton = new System.Windows.Forms.Button();
             this.ProductsButton = new System.Windows.Forms.Button();
+            this.ClientsButton = new System.Windows.Forms.Button();
             this.ContentPanel = new System.Windows.Forms.Panel();
             this.MenuStrip.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -65,49 +66,6 @@
             this.MenuStrip.Size = new System.Drawing.Size(1093, 24);
             this.MenuStrip.TabIndex = 0;
             this.MenuStrip.Text = "menuStrip";
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 716);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1093, 22);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoSize = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.flowLayoutPanel1.Controls.Add(this.SalesButton);
-            this.flowLayoutPanel1.Controls.Add(this.ProductsButton);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 24);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1093, 77);
-            this.flowLayoutPanel1.TabIndex = 2;
-            // 
-            // SalesButton
-            // 
-            this.SalesButton.AutoSize = true;
-            this.SalesButton.BackColor = System.Drawing.Color.LightCoral;
-            this.SalesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.SalesButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.SalesButton.FlatAppearance.BorderSize = 2;
-            this.SalesButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.HotPink;
-            this.SalesButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DeepPink;
-            this.SalesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SalesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SalesButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SalesButton.Image = global::DTD.Capawcino.App.Properties.Resources.goods;
-            this.SalesButton.Location = new System.Drawing.Point(3, 3);
-            this.SalesButton.Name = "SalesButton";
-            this.SalesButton.Size = new System.Drawing.Size(130, 71);
-            this.SalesButton.TabIndex = 10;
-            this.SalesButton.Text = "Sales";
-            this.SalesButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.SalesButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.SalesButton.UseVisualStyleBackColor = false;
-            this.SalesButton.Click += new System.EventHandler(this.SalesButton_Click);
             // 
             // userToolStripMenuItem
             // 
@@ -218,6 +176,50 @@
             this.jSONToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.jSONToolStripMenuItem.Text = "JSON";
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(0, 716);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1093, 22);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.flowLayoutPanel1.Controls.Add(this.SalesButton);
+            this.flowLayoutPanel1.Controls.Add(this.ProductsButton);
+            this.flowLayoutPanel1.Controls.Add(this.ClientsButton);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 24);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1093, 77);
+            this.flowLayoutPanel1.TabIndex = 2;
+            // 
+            // SalesButton
+            // 
+            this.SalesButton.AutoSize = true;
+            this.SalesButton.BackColor = System.Drawing.Color.LightCoral;
+            this.SalesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.SalesButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.SalesButton.FlatAppearance.BorderSize = 2;
+            this.SalesButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.HotPink;
+            this.SalesButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DeepPink;
+            this.SalesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SalesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SalesButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SalesButton.Image = global::DTD.Capawcino.App.Properties.Resources.goods;
+            this.SalesButton.Location = new System.Drawing.Point(3, 3);
+            this.SalesButton.Name = "SalesButton";
+            this.SalesButton.Size = new System.Drawing.Size(130, 71);
+            this.SalesButton.TabIndex = 10;
+            this.SalesButton.Text = "Sales";
+            this.SalesButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.SalesButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.SalesButton.UseVisualStyleBackColor = false;
+            this.SalesButton.Click += new System.EventHandler(this.SalesButton_Click);
+            // 
             // ProductsButton
             // 
             this.ProductsButton.AutoSize = true;
@@ -240,6 +242,29 @@
             this.ProductsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.ProductsButton.UseVisualStyleBackColor = false;
             this.ProductsButton.Click += new System.EventHandler(this.ProductsButton_Click);
+            // 
+            // ClientsButton
+            // 
+            this.ClientsButton.AutoSize = true;
+            this.ClientsButton.BackColor = System.Drawing.Color.LightCoral;
+            this.ClientsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientsButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.ClientsButton.FlatAppearance.BorderSize = 2;
+            this.ClientsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.HotPink;
+            this.ClientsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DeepPink;
+            this.ClientsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ClientsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientsButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ClientsButton.Image = global::DTD.Capawcino.App.Properties.Resources.woman;
+            this.ClientsButton.Location = new System.Drawing.Point(275, 3);
+            this.ClientsButton.Name = "ClientsButton";
+            this.ClientsButton.Size = new System.Drawing.Size(130, 71);
+            this.ClientsButton.TabIndex = 12;
+            this.ClientsButton.Text = "Clients";
+            this.ClientsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ClientsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.ClientsButton.UseVisualStyleBackColor = false;
+            this.ClientsButton.Click += new System.EventHandler(this.ClientsButton_Click);
             // 
             // ContentPanel
             // 
@@ -295,5 +320,6 @@
         private System.Windows.Forms.Button SalesButton;
         private System.Windows.Forms.Button ProductsButton;
         private System.Windows.Forms.Panel ContentPanel;
+        private System.Windows.Forms.Button ClientsButton;
     }
 }

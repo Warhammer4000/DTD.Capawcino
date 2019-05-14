@@ -56,7 +56,10 @@ namespace DTD.Capawcino.BusinessLogic
                 new CRUDManager().InsertRecord(DatabaseStrings.TagsTable, new Tag() { Name = "Default" });
             }
 
-
+            if (!new DatabaseQueries().CollectionExists(DatabaseStrings.ClientsTable))
+            {
+                new CRUDManager().InsertRecord(DatabaseStrings.ClientsTable, new Client() { Name = "Default" });
+            }
 
         }
 

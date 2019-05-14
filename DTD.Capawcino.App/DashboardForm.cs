@@ -17,7 +17,7 @@ namespace DTD.Capawcino.App
         public DashboardForm()
         {
             InitializeComponent();
-           
+            SalesButton_Click(new object(), new EventArgs());
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -27,16 +27,24 @@ namespace DTD.Capawcino.App
 
         private void ProductsButton_Click(object sender, EventArgs e)
         {
-            ProductsView productsView=new ProductsView(){Dock = DockStyle.Fill};
+            ProductsView view=new ProductsView(){Dock = DockStyle.Fill};
             ContentPanel.Controls.Clear();
-            ContentPanel.Controls.Add(productsView);
+            ContentPanel.Controls.Add(view);
         }
 
         private void SalesButton_Click(object sender, EventArgs e)
         {
-            SalesView productsView = new SalesView() { Dock = DockStyle.Fill };
+            SalesView view = new SalesView() { Dock = DockStyle.Fill };
             ContentPanel.Controls.Clear();
-            ContentPanel.Controls.Add(productsView);
+            ContentPanel.Controls.Add(view);
+        }
+
+
+        private void ClientsButton_Click(object sender, EventArgs e)
+        {
+            ClientsView view = new ClientsView() { Dock = DockStyle.Fill };
+            ContentPanel.Controls.Clear();
+            ContentPanel.Controls.Add(view);
         }
 
         protected override void OnClosed(EventArgs e)
@@ -45,5 +53,7 @@ namespace DTD.Capawcino.App
             base.OnClosed(e);
            
         }
+
+        
     }
 }

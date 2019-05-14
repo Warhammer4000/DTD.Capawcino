@@ -7,5 +7,6 @@
         public static string ProductTable = "Products";
         public static string TypeTable = "Types";
         public static string TagsTable = "Tags";
+        public static string ClientsTable = "Clients";
     }
 }

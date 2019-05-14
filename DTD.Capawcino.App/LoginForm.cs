@@ -20,7 +20,16 @@ namespace DTD.Capawcino.App
         public LoginForm()
         {
             InitializeComponent();
-            new CredentialManager().InitialDatabaseSetup();
+            try
+            {
+                CredentialManager credentialManager = new CredentialManager();
+                credentialManager.InitialDatabaseSetup();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, @"Database Error");
+            }
+            
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
@@ -34,7 +43,7 @@ namespace DTD.Capawcino.App
             }
             else
             {
-                MessageBox.Show("Invalid Username or Password", "Warning", MessageBoxButtons.OK,
+                MessageBox.Show(@"Invalid Username or Password", @"Warning", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
             }
         }
