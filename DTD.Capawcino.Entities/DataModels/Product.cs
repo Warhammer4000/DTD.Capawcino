@@ -35,9 +35,15 @@ namespace DTD.Capawcino.Entities
 
         [BsonIgnore]  public float Total => Cost + Profit + Royality;
 
-        public float Discount { get; set; }
 
-        [BsonIgnore]  public float GrandTotal => Total - Total*Discount/100;
+        [Browsable(false)]
+        public bool FlatDiscount { get; set; }
+        [Browsable(false)]
+        public float DiscountValue { get; set; }
+
+        [BsonIgnore] [DisplayName("Discount")] public float DiscountAmount => FlatDiscount ? DiscountValue : Total * DiscountValue / 100;
+
+        [BsonIgnore]  public float GrandTotal => Total - DiscountAmount;
 
         
     }

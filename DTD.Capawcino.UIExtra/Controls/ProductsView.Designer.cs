@@ -28,13 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.DiscountAmount = new System.Windows.Forms.NumericUpDown();
+            this.DiscountValue = new System.Windows.Forms.NumericUpDown();
+            this.DiscountBox = new System.Windows.Forms.GroupBox();
+            this.PercentDiscount = new System.Windows.Forms.RadioButton();
+            this.FlatDiscountButton = new System.Windows.Forms.RadioButton();
             this.GrandTotalNumeric = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
-            this.DiscountNumeric = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.Total = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
@@ -69,8 +74,11 @@
             this.DatagridView = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DiscountAmount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DiscountValue)).BeginInit();
+            this.DiscountBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrandTotalNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DiscountNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Total)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Royalty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CostNumeric)).BeginInit();
@@ -106,9 +114,9 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.panel4, 1, 8);
             this.tableLayoutPanel1.Controls.Add(this.GrandTotalNumeric, 1, 9);
             this.tableLayoutPanel1.Controls.Add(this.label8, 0, 9);
-            this.tableLayoutPanel1.Controls.Add(this.DiscountNumeric, 1, 8);
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.Total, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 7);
@@ -124,11 +132,11 @@
             this.tableLayoutPanel1.Controls.Add(this.ProfitValue, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.Profit, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 6);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 370);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(8);
-            this.tableLayoutPanel1.RowCount = 11;
+            this.tableLayoutPanel1.RowCount = 13;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -139,17 +147,102 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(309, 276);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(292, 528);
             this.tableLayoutPanel1.TabIndex = 23;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.DiscountAmount);
+            this.panel4.Controls.Add(this.DiscountValue);
+            this.panel4.Controls.Add(this.DiscountBox);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(149, 341);
+            this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(5);
+            this.tableLayoutPanel1.SetRowSpan(this.panel4, 4);
+            this.panel4.Size = new System.Drawing.Size(132, 141);
+            this.panel4.TabIndex = 19;
+            // 
+            // DiscountAmount
+            // 
+            this.DiscountAmount.Dock = System.Windows.Forms.DockStyle.Top;
+            this.DiscountAmount.Enabled = false;
+            this.DiscountAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DiscountAmount.Location = new System.Drawing.Point(5, 109);
+            this.DiscountAmount.Maximum = new decimal(new int[] {
+            9999990,
+            0,
+            0,
+            0});
+            this.DiscountAmount.Name = "DiscountAmount";
+            this.DiscountAmount.ReadOnly = true;
+            this.DiscountAmount.Size = new System.Drawing.Size(122, 29);
+            this.DiscountAmount.TabIndex = 10;
+            // 
+            // DiscountValue
+            // 
+            this.DiscountValue.Dock = System.Windows.Forms.DockStyle.Top;
+            this.DiscountValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DiscountValue.Location = new System.Drawing.Point(5, 80);
+            this.DiscountValue.Maximum = new decimal(new int[] {
+            9999990,
+            0,
+            0,
+            0});
+            this.DiscountValue.Name = "DiscountValue";
+            this.DiscountValue.Size = new System.Drawing.Size(122, 29);
+            this.DiscountValue.TabIndex = 9;
+            // 
+            // DiscountBox
+            // 
+            this.DiscountBox.AutoSize = true;
+            this.DiscountBox.Controls.Add(this.PercentDiscount);
+            this.DiscountBox.Controls.Add(this.FlatDiscountButton);
+            this.DiscountBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.DiscountBox.Location = new System.Drawing.Point(5, 5);
+            this.DiscountBox.Name = "DiscountBox";
+            this.DiscountBox.Size = new System.Drawing.Size(122, 75);
+            this.DiscountBox.TabIndex = 2;
+            this.DiscountBox.TabStop = false;
+            this.DiscountBox.Text = "Select One";
+            // 
+            // PercentDiscount
+            // 
+            this.PercentDiscount.AutoSize = true;
+            this.PercentDiscount.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PercentDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PercentDiscount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PercentDiscount.Location = new System.Drawing.Point(3, 44);
+            this.PercentDiscount.Name = "PercentDiscount";
+            this.PercentDiscount.Size = new System.Drawing.Size(116, 28);
+            this.PercentDiscount.TabIndex = 1;
+            this.PercentDiscount.Text = "Percent";
+            this.PercentDiscount.UseVisualStyleBackColor = true;
+            // 
+            // FlatDiscountButton
+            // 
+            this.FlatDiscountButton.AutoSize = true;
+            this.FlatDiscountButton.Checked = true;
+            this.FlatDiscountButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.FlatDiscountButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FlatDiscountButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FlatDiscountButton.Location = new System.Drawing.Point(3, 16);
+            this.FlatDiscountButton.Name = "FlatDiscountButton";
+            this.FlatDiscountButton.Size = new System.Drawing.Size(116, 28);
+            this.FlatDiscountButton.TabIndex = 0;
+            this.FlatDiscountButton.TabStop = true;
+            this.FlatDiscountButton.Text = "Flat";
+            this.FlatDiscountButton.UseVisualStyleBackColor = true;
             // 
             // GrandTotalNumeric
             // 
             this.GrandTotalNumeric.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GrandTotalNumeric.Enabled = false;
             this.GrandTotalNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GrandTotalNumeric.Location = new System.Drawing.Point(149, 376);
+            this.GrandTotalNumeric.Location = new System.Drawing.Point(149, 488);
             this.GrandTotalNumeric.Maximum = new decimal(new int[] {
             9999990,
             0,
@@ -166,26 +259,12 @@
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(11, 373);
+            this.label8.Location = new System.Drawing.Point(11, 485);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(132, 35);
             this.label8.TabIndex = 16;
             this.label8.Text = "Grand Total";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // DiscountNumeric
-            // 
-            this.DiscountNumeric.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DiscountNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DiscountNumeric.Location = new System.Drawing.Point(149, 341);
-            this.DiscountNumeric.Maximum = new decimal(new int[] {
-            9999990,
-            0,
-            0,
-            0});
-            this.DiscountNumeric.Name = "DiscountNumeric";
-            this.DiscountNumeric.Size = new System.Drawing.Size(132, 29);
-            this.DiscountNumeric.TabIndex = 15;
             // 
             // label7
             // 
@@ -195,7 +274,8 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(11, 338);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(132, 35);
+            this.tableLayoutPanel1.SetRowSpan(this.label7, 4);
+            this.label7.Size = new System.Drawing.Size(132, 147);
             this.label7.TabIndex = 14;
             this.label7.Text = "Discount";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -428,7 +508,7 @@
             this.TagBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.TagBox.Location = new System.Drawing.Point(8, 270);
             this.TagBox.Name = "TagBox";
-            this.TagBox.Size = new System.Drawing.Size(309, 100);
+            this.TagBox.Size = new System.Drawing.Size(292, 100);
             this.TagBox.TabIndex = 22;
             this.TagBox.TabStop = false;
             this.TagBox.Text = "Tags";
@@ -446,10 +526,10 @@
             this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SaveButton.ForeColor = System.Drawing.SystemColors.Desktop;
             this.SaveButton.Image = global::DTD.Capawcino.UIExtra.Properties.Resources.save;
-            this.SaveButton.Location = new System.Drawing.Point(8, 646);
+            this.SaveButton.Location = new System.Drawing.Point(8, 890);
             this.SaveButton.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(309, 48);
+            this.SaveButton.Size = new System.Drawing.Size(292, 48);
             this.SaveButton.TabIndex = 20;
             this.SaveButton.Text = "Save";
             this.SaveButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -470,9 +550,9 @@
             this.Deletebutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Deletebutton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Deletebutton.Image = global::DTD.Capawcino.UIExtra.Properties.Resources.basket;
-            this.Deletebutton.Location = new System.Drawing.Point(8, 694);
+            this.Deletebutton.Location = new System.Drawing.Point(8, 938);
             this.Deletebutton.Name = "Deletebutton";
-            this.Deletebutton.Size = new System.Drawing.Size(309, 48);
+            this.Deletebutton.Size = new System.Drawing.Size(292, 48);
             this.Deletebutton.TabIndex = 18;
             this.Deletebutton.Text = "Delete";
             this.Deletebutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -488,7 +568,7 @@
             this.PicturePanel.Location = new System.Drawing.Point(8, 8);
             this.PicturePanel.Name = "PicturePanel";
             this.PicturePanel.Padding = new System.Windows.Forms.Padding(10);
-            this.PicturePanel.Size = new System.Drawing.Size(309, 262);
+            this.PicturePanel.Size = new System.Drawing.Size(292, 262);
             this.PicturePanel.TabIndex = 17;
             // 
             // pictureBox
@@ -499,7 +579,7 @@
             this.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox.Location = new System.Drawing.Point(10, 50);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(289, 202);
+            this.pictureBox.Size = new System.Drawing.Size(272, 202);
             this.pictureBox.TabIndex = 15;
             this.pictureBox.TabStop = false;
             // 
@@ -518,7 +598,7 @@
             this.AddPictureButton.Image = global::DTD.Capawcino.UIExtra.Properties.Resources.image;
             this.AddPictureButton.Location = new System.Drawing.Point(10, 10);
             this.AddPictureButton.Name = "AddPictureButton";
-            this.AddPictureButton.Size = new System.Drawing.Size(289, 40);
+            this.AddPictureButton.Size = new System.Drawing.Size(272, 40);
             this.AddPictureButton.TabIndex = 14;
             this.AddPictureButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.AddPictureButton.UseVisualStyleBackColor = false;
@@ -654,23 +734,23 @@
             this.DatagridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.DatagridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DatagridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DatagridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DatagridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DatagridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DatagridView.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DatagridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.DatagridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DatagridView.GridColor = System.Drawing.Color.SlateBlue;
             this.DatagridView.Location = new System.Drawing.Point(0, 148);
@@ -698,8 +778,13 @@
             this.panel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DiscountAmount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DiscountValue)).EndInit();
+            this.DiscountBox.ResumeLayout(false);
+            this.DiscountBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrandTotalNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DiscountNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Total)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Royalty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CostNumeric)).EndInit();
@@ -734,7 +819,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.NumericUpDown GrandTotalNumeric;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.NumericUpDown DiscountNumeric;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown Total;
         private System.Windows.Forms.Label label6;
@@ -757,5 +841,11 @@
         private System.Windows.Forms.Button ProductConfigButton;
         private System.Windows.Forms.GroupBox SearchBox;
         private System.Windows.Forms.DataGridView DatagridView;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.NumericUpDown DiscountAmount;
+        private System.Windows.Forms.NumericUpDown DiscountValue;
+        private System.Windows.Forms.GroupBox DiscountBox;
+        private System.Windows.Forms.RadioButton PercentDiscount;
+        private System.Windows.Forms.RadioButton FlatDiscountButton;
     }
 }

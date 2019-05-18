@@ -16,6 +16,7 @@ namespace DTD.Capawcino.UIExtra.Form
         public Product Product { get; set; }
 
         private bool FlatProfit => Flat.Checked;
+        private bool FlatDiscount => FlatDiscountButton.Checked;
 
         public ProductForm()
         {
@@ -35,17 +36,28 @@ namespace DTD.Capawcino.UIExtra.Form
             Royalty.ValueChanged += Royalty_ValueChanged;
             Percent.CheckedChanged += Percent_CheckedChanged;
             Flat.CheckedChanged += Percent_CheckedChanged;
-            DiscountNumeric.ValueChanged += DiscountNumeric_ValueChanged;
+            FlatDiscountButton.CheckedChanged += Percent_CheckedChanged;
+            PercentDiscount.CheckedChanged += Percent_CheckedChanged;
+            DiscountValue.ValueChanged += DiscountValue_ValueChanged;
+
         }
 
-        private void UpdateComuptedData()
+        private void UpdateComuptedData(bool fromEvent=false)
         {
-            Total.Value = (decimal) Product.Total;
-            DiscountNumeric.Value = (decimal) Product.Discount;
-            GrandTotalNumeric.Value = (decimal) Product.GrandTotal;
-            Profit.Value = (decimal) Product.Profit;
-            ProfitValue_ValueChanged(new Object(),new EventArgs());
+            if (!fromEvent)
+            {
+                ProfitValue_ValueChanged(new Object(), new EventArgs());
+                DiscountValue_ValueChanged(new Object(), new EventArgs());
+            }
             
+
+            Total.Value = (decimal) Product.Total;
+            DiscountAmount.Value = (decimal)Product.DiscountAmount;
+           
+            Profit.Value = (decimal) Product.Profit;
+
+            GrandTotalNumeric.Value = (decimal)Product.GrandTotal;
+           
         }
 
 
@@ -105,7 +117,27 @@ namespace DTD.Capawcino.UIExtra.Form
 
             Product.FlatProfit = FlatProfit;
             Product.ProfitValue = (float)ProfitValue.Value;
+            UpdateComuptedData(true);
         }
+
+
+
+        private void DiscountValue_ValueChanged(object sender, EventArgs e)
+        {
+            if (FlatDiscount)
+            {
+                DiscountAmount.Value = DiscountValue.Value;
+            }
+            else
+            {
+                DiscountAmount.Value = Total.Value * DiscountValue.Value / 100;
+            }
+
+            Product.FlatDiscount = FlatDiscount;
+            Product.DiscountValue = (float)DiscountValue.Value;
+            UpdateComuptedData(true);
+        }
+
 
         private void Percent_CheckedChanged(object sender, EventArgs e)
         {
@@ -113,10 +145,6 @@ namespace DTD.Capawcino.UIExtra.Form
             
         }
 
-        private void DiscountNumeric_ValueChanged(object sender, EventArgs e)
-        {
-            Product.Discount = (float)DiscountNumeric.Value;
-            UpdateComuptedData();
-        }
+        
     }
 }

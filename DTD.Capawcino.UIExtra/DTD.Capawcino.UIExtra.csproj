@@ -66,6 +66,12 @@
     <Compile Include="Controls\ProductsView.Designer.cs">
       <DependentUpon>ProductsView.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomUI\SalesItemUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomUI\SalesItemUI.Designer.cs">
+      <DependentUpon>SalesItemUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\ProductConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\SalesView.resx">
       <DependentUpon>SalesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomUI\SalesItemUI.resx">
+      <DependentUpon>SalesItemUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\ProductConfigForm.resx">
       <DependentUpon>ProductConfigForm.cs</DependentUpon>
@@ -152,6 +161,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\printer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cart.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

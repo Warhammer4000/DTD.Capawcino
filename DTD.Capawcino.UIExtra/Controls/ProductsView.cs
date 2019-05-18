@@ -55,7 +55,7 @@ namespace DTD.Capawcino.UIExtra.Controls
         #region ProductView
 
         private bool FlatProfit => Flat.Checked;
-
+        private bool FlatDiscount => FlatDiscountButton.Checked;
 
         private void InitializeData()
         {
@@ -75,6 +75,8 @@ namespace DTD.Capawcino.UIExtra.Controls
             CostNumeric.Value = (decimal) SelectedProduct.Cost;
             Royalty.Value = (decimal) SelectedProduct.Royality;
             if (!SelectedProduct.FlatProfit) Percent.Checked = true;
+            if (!SelectedProduct.FlatDiscount) PercentDiscount.Checked = true;
+            DiscountValue.Value = (decimal)SelectedProduct.DiscountValue;
 
             EventSubscription();
 
@@ -91,7 +93,10 @@ namespace DTD.Capawcino.UIExtra.Controls
             Royalty.ValueChanged += Royalty_ValueChanged;
             Percent.CheckedChanged += Percent_CheckedChanged;
             Flat.CheckedChanged += Percent_CheckedChanged;
-            DiscountNumeric.ValueChanged += DiscountNumeric_ValueChanged;
+            FlatDiscountButton.CheckedChanged += Percent_CheckedChanged;
+            PercentDiscount.CheckedChanged += Percent_CheckedChanged;
+            DiscountValue.ValueChanged += DiscountValue_ValueChanged;
+
             DatagridView.CellMouseClick += DatagridView_CellMouseClick;
             DatagridView.CellValueChanged += DatagridView_CellValueChanged;
         }
@@ -106,18 +111,29 @@ namespace DTD.Capawcino.UIExtra.Controls
             Royalty.ValueChanged -= Royalty_ValueChanged;
             Percent.CheckedChanged -= Percent_CheckedChanged;
             Flat.CheckedChanged -= Percent_CheckedChanged;
-            DiscountNumeric.ValueChanged -= DiscountNumeric_ValueChanged;
+            FlatDiscountButton.CheckedChanged -= Percent_CheckedChanged;
+            PercentDiscount.CheckedChanged -= Percent_CheckedChanged;
+            DiscountValue.ValueChanged -= DiscountValue_ValueChanged;
+
             DatagridView.CellMouseClick -= DatagridView_CellMouseClick;
             DatagridView.CellValueChanged -= DatagridView_CellValueChanged;
         }
 
-        private void UpdateComuptedData()
+        private void UpdateComuptedData(bool fromEvent=false)
         {
+            if (!fromEvent)
+            {
+                ProfitValue_ValueChanged(new object(), new EventArgs());
+                DiscountValue_ValueChanged(new object(), new EventArgs());
+            }
+            
+
             Total.Value = (decimal) SelectedProduct.Total;
-            DiscountNumeric.Value = (decimal) SelectedProduct.Discount;
-            GrandTotalNumeric.Value = (decimal) SelectedProduct.GrandTotal;
             Profit.Value = (decimal)SelectedProduct.Profit;
-            ProfitValue_ValueChanged(new object(), new EventArgs());
+            DiscountAmount.Value = (decimal) SelectedProduct.DiscountAmount;
+            GrandTotalNumeric.Value = (decimal) SelectedProduct.GrandTotal;
+          
+            
         }
 
 
@@ -159,11 +175,7 @@ namespace DTD.Capawcino.UIExtra.Controls
         }
 
 
-        private void DiscountNumeric_ValueChanged(object sender, EventArgs e)
-        {
-            SelectedProduct.Discount = (float) DiscountNumeric.Value;
-            UpdateComuptedData();
-        }
+
 
 
 
@@ -177,9 +189,29 @@ namespace DTD.Capawcino.UIExtra.Controls
             else
                 Profit.Value = CostNumeric.Value * ProfitValue.Value / 100;
 
-            
+            UpdateComuptedData(true);
             
         }
+
+
+
+
+        private void DiscountValue_ValueChanged(object sender, EventArgs e)
+        {
+            if (FlatDiscount)
+            {
+                DiscountAmount.Value = DiscountValue.Value;
+            }
+            else
+            {
+                DiscountAmount.Value = Total.Value * DiscountValue.Value / 100;
+            }
+
+            SelectedProduct.FlatDiscount = FlatDiscount;
+            SelectedProduct.DiscountValue = (float)DiscountValue.Value;
+            UpdateComuptedData(true);
+        }
+
 
         private void Percent_CheckedChanged(object sender, EventArgs e)
         {

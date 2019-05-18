@@ -24,6 +24,7 @@ namespace DTD.Capawcino.Entities
             ProductId = product.Id;
             Name = product.Name;
             Price = product.GrandTotal;
+            Quantity = 1;
         }
 
 

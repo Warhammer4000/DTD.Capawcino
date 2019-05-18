@@ -10,6 +10,8 @@ namespace DTD.Capawcino.Entities
     public class Bill
     {
         [Browsable(false)] [BsonId(IdGenerator = typeof(GuidGenerator))] public Guid BillId { get; set; }
+
+        [Browsable(false)] public Guid CustomerID { get; set; }
         public DateTime DateTime { get; set; }
         public List<SalesItem> SalesItem;
         public float Total => SalesItem.Sum(r => r.TotalPrice);
@@ -30,9 +32,13 @@ namespace DTD.Capawcino.Entities
         {
             DateTime=dateTime;
             SalesItem=new List<SalesItem>();
-            SalesItem.Add(new SalesItem(new Product()));
-            SalesItem.Add(new SalesItem(new Product()));
+            SalesItem.Add(new SalesItem(new Product() { Name = "Dummy" }));//BUG WORKAROUND
+
         }
+
+
+
+
 
     }
 }
