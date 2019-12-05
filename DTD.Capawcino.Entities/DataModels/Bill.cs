@@ -24,6 +24,8 @@ namespace DTD.Capawcino.Entities
         [BsonIgnore]public float DiscountedTotal => Total - Discount;
         public float Vat => DiscountedTotal * 0.15f;
         public float GrandTotal => DiscountedTotal + Vat;
+        public float Cash { get; set; }
+        public float Change => GrandTotal - Cash;
         public bool Paid { get; set; }
 
         public Bill() { }//for Serializer

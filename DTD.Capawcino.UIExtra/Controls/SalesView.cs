@@ -1,23 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTD.Capawcino.DatabaseManager;
 using DTD.Capawcino.Entities;
 using DTD.Capawcino.UIExtra.CustomUI;
+using DTD.Capawcino.UIExtra.Properties;
 
 namespace DTD.Capawcino.UIExtra
 {
     public partial class SalesView : BaseControl
     {
         private Bill Bill { get; set; }
-        private List<Product> Items { get; set; }
-
+        private List<Product> Items { get; }
+        private List<ProductType> ProductTypes { get; }
 
         public SalesView()
         {
@@ -25,34 +22,30 @@ namespace DTD.Capawcino.UIExtra
             EventSubscription();
             Bill = new Bill(DateTime.Now);
             Items = new CRUDManager().LoadRecords<Product>(DatabaseStrings.ProductTable);
+            var typeDataFromDatabase = new CRUDManager().LoadRecords<ProductType>(DatabaseStrings.TypeTable);
+            ProductTypes=new List<ProductType>(){ new ProductType() { Name = "All" } };
+            ProductTypes.AddRange(typeDataFromDatabase);
+
             NewBill_Click(new object(), new EventArgs());
             InitializeSalesItems();
         }
 
         private void NewBill_Click(object sender, EventArgs e)
         {
-
-            Bill=new Bill(DateTime.Now);
+            Bill = new Bill(DateTime.Now);
             DatagridView.DataSource = Bill.SalesItem;
-            Bill.SalesItem.RemoveAt(0);//BUG WORKAROUND
+            Bill.SalesItem.RemoveAt(0); //BUG WORKAROUND
             InitalizeBill();
-
         }
 
 
         private void AddSalesItem(SalesItem salesItem)
         {
-            SalesItem item = Bill.SalesItem.FirstOrDefault(r => r.ProductId == salesItem.ProductId);
-            if (item!=null)
-            {
+            var item = Bill.SalesItem.FirstOrDefault(r => r.ProductId == salesItem.ProductId);
+            if (item != null)
                 item.Quantity++;
-            }
             else
-            {
                 Bill.SalesItem.Add(salesItem);
-            }
-
-            
 
 
             InitalizeBill();
@@ -61,7 +54,7 @@ namespace DTD.Capawcino.UIExtra
 
         private void RemoveSalesItem(SalesItem salesItem)
         {
-            SalesItem item = Bill.SalesItem.First(r => r.ProductId == salesItem.ProductId);
+            var item = Bill.SalesItem.First(r => r.ProductId == salesItem.ProductId);
             item.Quantity = 1;
             Bill.SalesItem.Remove(item);
             InitalizeBill();
@@ -73,15 +66,17 @@ namespace DTD.Capawcino.UIExtra
             SalesLayoutPanel.Controls.Clear();
             foreach (var item in Items)
             {
-                SalesItemUI UIElement = new SalesItemUI(item);
+                var UIElement = new SalesItemUI(item);
                 UIElement.AddToCartButtonClick += AddSalesItem;
                 SalesLayoutPanel.Controls.Add(UIElement);
             }
+
+            TypeFilterCombo.DataSource = null;
+            TypeFilterCombo.DataSource = ProductTypes;
         }
 
         private void InitalizeBill()
         {
-           
             DatagridView.DataSource = null;
             DatagridView.Columns.Clear();
             DatagridView.DataSource = Bill.SalesItem;
@@ -94,7 +89,7 @@ namespace DTD.Capawcino.UIExtra
 
         private void ButtonsColumnSetup(DataGridView dataGrid)
         {
-            DataGridViewButtonColumn removebuttons = new DataGridViewButtonColumn();
+            var removebuttons = new DataGridViewButtonColumn();
             {
                 removebuttons.HeaderText = @"Remove";
                 removebuttons.FlatStyle = FlatStyle.Flat;
@@ -110,12 +105,12 @@ namespace DTD.Capawcino.UIExtra
         {
             if (e.RowIndex < 0)
                 return;
-            DataGridView dataGrid = (DataGridView)sender;
+            var dataGrid = (DataGridView) sender;
 
             if (dataGrid.Columns[e.ColumnIndex].HeaderText == "Remove")
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-                var resource = Properties.Resources.rubbish_bin;
+                var resource = Resources.rubbish_bin;
                 var w = resource.Width;
                 var h = resource.Height;
                 var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
@@ -125,7 +120,6 @@ namespace DTD.Capawcino.UIExtra
                 e.Handled = true;
             }
         }
-
 
 
         private void EventSubscription()
@@ -140,8 +134,36 @@ namespace DTD.Capawcino.UIExtra
             MemberCheckBox.CheckStateChanged += MemberCheckBox_CheckStateChanged;
             FlatNumeric.ValueChanged += FlatNumeric_ValueChanged;
             PercentNumeric.ValueChanged += FlatNumeric_ValueChanged;
+            CashNumeric.ValueChanged += CashNumeric_ValueChanged;
+            Template1.Click += OnTemplateButtonClick;
+            Template2.Click += OnTemplateButtonClick;
+            Template3.Click += OnTemplateButtonClick;
         }
 
+        private void OnTemplateButtonClick(object sender, EventArgs e)
+        {
+            Button button = (Button) sender;
+            switch (button.Name)
+            {
+                case "Template1":
+                    CashNumeric.Value = 100;
+                    break;
+                case "Template2":
+                    CashNumeric.Value = 500;
+                    break;
+                case "Template3":
+                    CashNumeric.Value = 1000;
+                    break;
+
+            }
+        }
+
+        private void CashNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            var numericUpDown = (NumericUpDown)sender;
+            Bill.Cash = (float)numericUpDown.Value;
+            InitalizeBill();
+        }
 
         private void Grid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -157,11 +179,10 @@ namespace DTD.Capawcino.UIExtra
         }
 
 
-
         private void FlatNumeric_ValueChanged(object sender, EventArgs e)
         {
-            NumericUpDown numericUpDown = (NumericUpDown) sender;
-            Bill.DiscountValue = (float)numericUpDown.Value;
+            var numericUpDown = (NumericUpDown) sender;
+            Bill.DiscountValue = (float) numericUpDown.Value;
             Bill.FlatDiscount = FlatDiscount.Checked;
             InitalizeBill();
         }
@@ -178,16 +199,21 @@ namespace DTD.Capawcino.UIExtra
 
         private void EventUnSubscription()
         {
-
         }
 
 
         private void UpdateView()
         {
+            FlatNumeric.Value = 0;
+            PercentNumeric.Value = 0;
+            CashNumeric.Value = 0;
+
+
             TotalLable.Text = Bill.Total.ToString("N0");
             DiscountAmount.Text = Bill.Discount.ToString("N0");
             VatTotal.Text = Bill.Vat.ToString("N0");
             GrandTotal.Text = Bill.GrandTotal.ToString("N0");
+            ChangeValue.Text = Bill.Change.ToString("N0");
         }
 
         private void PaidCheckbox_CheckedChanged(object sender, EventArgs e)

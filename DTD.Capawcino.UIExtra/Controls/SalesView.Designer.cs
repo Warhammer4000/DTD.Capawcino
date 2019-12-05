@@ -28,17 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.SalesLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.BillBox = new System.Windows.Forms.GroupBox();
             this.Billpanel = new System.Windows.Forms.Panel();
             this.ProductsBox = new System.Windows.Forms.GroupBox();
             this.BillLayoutPanel = new System.Windows.Forms.Panel();
             this.PaidCheckbox = new System.Windows.Forms.CheckBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.ChangeValue = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.CashTemplate = new System.Windows.Forms.FlowLayoutPanel();
+            this.Template1 = new System.Windows.Forms.Button();
+            this.Template2 = new System.Windows.Forms.Button();
+            this.Template3 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.CashNumeric = new System.Windows.Forms.NumericUpDown();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.GrandTotal = new System.Windows.Forms.Label();
@@ -79,15 +88,25 @@
             this.MemberCheckBox = new System.Windows.Forms.CheckBox();
             this.NewBill = new System.Windows.Forms.Button();
             this.PrintButton = new System.Windows.Forms.Button();
+            this.SalesLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.TypeFilterCombo = new System.Windows.Forms.ComboBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.NameBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.BillBox.SuspendLayout();
             this.Billpanel.SuspendLayout();
             this.ProductsBox.SuspendLayout();
             this.BillLayoutPanel.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.CashTemplate.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CashNumeric)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -103,6 +122,8 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -140,28 +161,19 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Products";
             // 
-            // SalesLayoutPanel
-            // 
-            this.SalesLayoutPanel.AutoScroll = true;
-            this.SalesLayoutPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SalesLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SalesLayoutPanel.Location = new System.Drawing.Point(5, 164);
-            this.SalesLayoutPanel.Name = "SalesLayoutPanel";
-            this.SalesLayoutPanel.Padding = new System.Windows.Forms.Padding(10);
-            this.SalesLayoutPanel.Size = new System.Drawing.Size(588, 702);
-            this.SalesLayoutPanel.TabIndex = 2;
-            // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.groupBox7);
+            this.groupBox5.Controls.Add(this.groupBox6);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(5, 27);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(588, 137);
+            this.groupBox5.Size = new System.Drawing.Size(588, 86);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Search";
+            this.groupBox5.Text = "Filters";
             // 
             // BillBox
             // 
@@ -206,6 +218,8 @@
             // 
             this.BillLayoutPanel.AutoScroll = true;
             this.BillLayoutPanel.Controls.Add(this.PaidCheckbox);
+            this.BillLayoutPanel.Controls.Add(this.panel8);
+            this.BillLayoutPanel.Controls.Add(this.panel7);
             this.BillLayoutPanel.Controls.Add(this.panel3);
             this.BillLayoutPanel.Controls.Add(this.panel2);
             this.BillLayoutPanel.Controls.Add(this.panel4);
@@ -222,14 +236,142 @@
             // PaidCheckbox
             // 
             this.PaidCheckbox.AutoSize = true;
+            this.PaidCheckbox.Checked = true;
+            this.PaidCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.PaidCheckbox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PaidCheckbox.Location = new System.Drawing.Point(0, 492);
+            this.PaidCheckbox.Location = new System.Drawing.Point(0, 586);
             this.PaidCheckbox.Name = "PaidCheckbox";
             this.PaidCheckbox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.PaidCheckbox.Size = new System.Drawing.Size(493, 28);
-            this.PaidCheckbox.TabIndex = 76;
+            this.PaidCheckbox.TabIndex = 80;
             this.PaidCheckbox.Text = "Paid";
             this.PaidCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // panel8
+            // 
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel8.Controls.Add(this.label13);
+            this.panel8.Controls.Add(this.ChangeValue);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(0, 540);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(493, 46);
+            this.panel8.TabIndex = 79;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label13.Location = new System.Drawing.Point(394, 0);
+            this.label13.Name = "label13";
+            this.label13.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.label13.Size = new System.Drawing.Size(77, 34);
+            this.label13.TabIndex = 5;
+            this.label13.Text = "Change";
+            // 
+            // ChangeValue
+            // 
+            this.ChangeValue.AutoSize = true;
+            this.ChangeValue.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ChangeValue.Location = new System.Drawing.Point(471, 0);
+            this.ChangeValue.Name = "ChangeValue";
+            this.ChangeValue.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.ChangeValue.Size = new System.Drawing.Size(20, 34);
+            this.ChangeValue.TabIndex = 4;
+            this.ChangeValue.Text = "0";
+            // 
+            // panel7
+            // 
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel7.Controls.Add(this.CashTemplate);
+            this.panel7.Controls.Add(this.label11);
+            this.panel7.Controls.Add(this.CashNumeric);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 492);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(493, 48);
+            this.panel7.TabIndex = 77;
+            // 
+            // CashTemplate
+            // 
+            this.CashTemplate.BackColor = System.Drawing.Color.AliceBlue;
+            this.CashTemplate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CashTemplate.Controls.Add(this.Template1);
+            this.CashTemplate.Controls.Add(this.Template2);
+            this.CashTemplate.Controls.Add(this.Template3);
+            this.CashTemplate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CashTemplate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CashTemplate.Location = new System.Drawing.Point(0, 0);
+            this.CashTemplate.Name = "CashTemplate";
+            this.CashTemplate.Size = new System.Drawing.Size(275, 46);
+            this.CashTemplate.TabIndex = 5;
+            // 
+            // Template1
+            // 
+            this.Template1.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.Template1.FlatAppearance.BorderSize = 0;
+            this.Template1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Template1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Template1.Location = new System.Drawing.Point(5, 5);
+            this.Template1.Margin = new System.Windows.Forms.Padding(5);
+            this.Template1.Name = "Template1";
+            this.Template1.Size = new System.Drawing.Size(77, 31);
+            this.Template1.TabIndex = 0;
+            this.Template1.Text = "100";
+            this.Template1.UseVisualStyleBackColor = false;
+            // 
+            // Template2
+            // 
+            this.Template2.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.Template2.FlatAppearance.BorderSize = 0;
+            this.Template2.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Template2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Template2.Location = new System.Drawing.Point(92, 5);
+            this.Template2.Margin = new System.Windows.Forms.Padding(5);
+            this.Template2.Name = "Template2";
+            this.Template2.Size = new System.Drawing.Size(77, 31);
+            this.Template2.TabIndex = 1;
+            this.Template2.Text = "500";
+            this.Template2.UseVisualStyleBackColor = false;
+            // 
+            // Template3
+            // 
+            this.Template3.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.Template3.FlatAppearance.BorderSize = 0;
+            this.Template3.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Template3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Template3.Location = new System.Drawing.Point(179, 5);
+            this.Template3.Margin = new System.Windows.Forms.Padding(5);
+            this.Template3.Name = "Template3";
+            this.Template3.Size = new System.Drawing.Size(77, 31);
+            this.Template3.TabIndex = 2;
+            this.Template3.Text = "1000";
+            this.Template3.UseVisualStyleBackColor = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label11.Location = new System.Drawing.Point(275, 0);
+            this.label11.Name = "label11";
+            this.label11.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.label11.Size = new System.Drawing.Size(53, 34);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Cash";
+            // 
+            // CashNumeric
+            // 
+            this.CashNumeric.Dock = System.Windows.Forms.DockStyle.Right;
+            this.CashNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CashNumeric.Location = new System.Drawing.Point(328, 0);
+            this.CashNumeric.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
+            this.CashNumeric.Name = "CashNumeric";
+            this.CashNumeric.Size = new System.Drawing.Size(163, 45);
+            this.CashNumeric.TabIndex = 3;
             // 
             // panel3
             // 
@@ -428,23 +570,23 @@
             this.DatagridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.DatagridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DatagridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DatagridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DatagridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.DatagridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DatagridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DatagridView.DefaultCellStyle = dataGridViewCellStyle6;
             this.DatagridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.DatagridView.GridColor = System.Drawing.Color.SlateBlue;
             this.DatagridView.Location = new System.Drawing.Point(0, 205);
@@ -732,6 +874,58 @@
             this.PrintButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.PrintButton.UseVisualStyleBackColor = false;
             // 
+            // SalesLayoutPanel
+            // 
+            this.SalesLayoutPanel.AutoScroll = true;
+            this.SalesLayoutPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SalesLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SalesLayoutPanel.Location = new System.Drawing.Point(5, 113);
+            this.SalesLayoutPanel.Name = "SalesLayoutPanel";
+            this.SalesLayoutPanel.Padding = new System.Windows.Forms.Padding(10);
+            this.SalesLayoutPanel.Size = new System.Drawing.Size(588, 753);
+            this.SalesLayoutPanel.TabIndex = 4;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.TypeFilterCombo);
+            this.groupBox6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox6.Location = new System.Drawing.Point(3, 20);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(132, 63);
+            this.groupBox6.TabIndex = 5;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Type";
+            // 
+            // TypeFilterCombo
+            // 
+            this.TypeFilterCombo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TypeFilterCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TypeFilterCombo.FormattingEnabled = true;
+            this.TypeFilterCombo.Location = new System.Drawing.Point(3, 20);
+            this.TypeFilterCombo.Name = "TypeFilterCombo";
+            this.TypeFilterCombo.Size = new System.Drawing.Size(126, 37);
+            this.TypeFilterCombo.TabIndex = 5;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.NameBox);
+            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox7.Location = new System.Drawing.Point(135, 20);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(215, 63);
+            this.groupBox7.TabIndex = 6;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Name";
+            // 
+            // NameBox
+            // 
+            this.NameBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameBox.Location = new System.Drawing.Point(3, 20);
+            this.NameBox.Name = "NameBox";
+            this.NameBox.Size = new System.Drawing.Size(209, 35);
+            this.NameBox.TabIndex = 0;
+            // 
             // SalesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -748,11 +942,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
             this.BillBox.ResumeLayout(false);
             this.Billpanel.ResumeLayout(false);
             this.ProductsBox.ResumeLayout(false);
             this.BillLayoutPanel.ResumeLayout(false);
             this.BillLayoutPanel.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.CashTemplate.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CashNumeric)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -778,6 +979,9 @@
             this.panel6.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -789,7 +993,6 @@
         private System.Windows.Forms.Panel Billpanel;
         private System.Windows.Forms.GroupBox ProductsBox;
         private System.Windows.Forms.Panel BillLayoutPanel;
-        private System.Windows.Forms.CheckBox PaidCheckbox;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label GrandTotal;
@@ -831,7 +1034,22 @@
         private System.Windows.Forms.Button NewBill;
         private System.Windows.Forms.Button PrintButton;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.FlowLayoutPanel SalesLayoutPanel;
         private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.CheckBox PaidCheckbox;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label ChangeValue;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.FlowLayoutPanel CashTemplate;
+        private System.Windows.Forms.Button Template1;
+        private System.Windows.Forms.Button Template2;
+        private System.Windows.Forms.Button Template3;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.NumericUpDown CashNumeric;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.FlowLayoutPanel SalesLayoutPanel;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.ComboBox TypeFilterCombo;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.TextBox NameBox;
     }
 }

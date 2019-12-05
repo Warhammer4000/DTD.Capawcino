@@ -25,7 +25,7 @@ namespace DTD.Capawcino.UIExtra.Controls
             }
         }
 
-        private void AddButton_Click(object sender, System.EventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
             ProductForm productForm=new ProductForm();
             if (productForm.ShowDialog()==DialogResult.OK)
@@ -46,7 +46,7 @@ namespace DTD.Capawcino.UIExtra.Controls
            
         }
 
-        private void DatagridView_CellValueChanged(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
+        private void DatagridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             UpdateGrid();
         }
@@ -56,6 +56,7 @@ namespace DTD.Capawcino.UIExtra.Controls
 
         private bool FlatProfit => Flat.Checked;
         private bool FlatDiscount => FlatDiscountButton.Checked;
+        private List<ProductType> ProductTypes=>new CRUDManager().LoadRecords<ProductType>(DatabaseStrings.TypeTable);
 
         private void InitializeData()
         {
@@ -70,6 +71,8 @@ namespace DTD.Capawcino.UIExtra.Controls
             }
            
             NameTextBox.Text = SelectedProduct.Name;
+            TypeComboBox.DataSource = null;
+            TypeComboBox.DataSource = ProductTypes;
             TypeComboBox.SelectedItem = SelectedProduct.ProductType;
             ProfitValue.Value = (decimal)SelectedProduct.ProfitValue;
             CostNumeric.Value = (decimal) SelectedProduct.Cost;

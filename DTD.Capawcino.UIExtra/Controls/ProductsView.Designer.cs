@@ -529,7 +529,7 @@
             this.SaveButton.Location = new System.Drawing.Point(8, 890);
             this.SaveButton.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(292, 48);
+            this.SaveButton.Size = new System.Drawing.Size(292, 59);
             this.SaveButton.TabIndex = 20;
             this.SaveButton.Text = "Save";
             this.SaveButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -550,7 +550,7 @@
             this.Deletebutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Deletebutton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Deletebutton.Image = global::DTD.Capawcino.UIExtra.Properties.Resources.basket;
-            this.Deletebutton.Location = new System.Drawing.Point(8, 938);
+            this.Deletebutton.Location = new System.Drawing.Point(8, 949);
             this.Deletebutton.Name = "Deletebutton";
             this.Deletebutton.Size = new System.Drawing.Size(292, 48);
             this.Deletebutton.TabIndex = 18;
