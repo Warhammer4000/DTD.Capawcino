@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using DTD.Capawcino.ApplicationControllers.PrinterLogic;
 using DTD.Capawcino.DatabaseManager;
 using DTD.Capawcino.Entities;
 using DTD.Capawcino.UIExtra.CustomUI;
@@ -28,6 +29,13 @@ namespace DTD.Capawcino.UIExtra
 
             NewBill_Click(new object(), new EventArgs());
             InitializeSalesItems();
+            //PrintButton.Click += PrintButton_Click;
+        }
+
+        private void PrintButton_Click(object sender, EventArgs e)
+        {
+           PrinterController controller=new PrinterController();
+           controller.PrintReceiptForTransaction(Bill);
         }
 
         private void NewBill_Click(object sender, EventArgs e)
@@ -35,7 +43,12 @@ namespace DTD.Capawcino.UIExtra
             Bill = new Bill(DateTime.Now);
             DatagridView.DataSource = Bill.SalesItem;
             Bill.SalesItem.RemoveAt(0); //BUG WORKAROUND
+            
             InitalizeBill();
+
+            FlatNumeric.Value = 0;
+            PercentNumeric.Value = 0;
+            CashNumeric.Value = 0;
         }
 
 
@@ -45,7 +58,11 @@ namespace DTD.Capawcino.UIExtra
             if (item != null)
                 item.Quantity++;
             else
+            {
+                salesItem.Quantity = 1;
                 Bill.SalesItem.Add(salesItem);
+            }
+                
 
 
             InitalizeBill();
@@ -204,9 +221,7 @@ namespace DTD.Capawcino.UIExtra
 
         private void UpdateView()
         {
-            FlatNumeric.Value = 0;
-            PercentNumeric.Value = 0;
-            CashNumeric.Value = 0;
+            
 
 
             TotalLable.Text = Bill.Total.ToString("N0");

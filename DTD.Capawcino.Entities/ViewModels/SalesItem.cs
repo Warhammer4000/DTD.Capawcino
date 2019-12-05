@@ -13,6 +13,7 @@ namespace DTD.Capawcino.Entities
         [Browsable(false)]
         public Guid ProductId { get; set; }
         public string Name { get; set; }
+       
         public float Price { get; set; }
         public int Quantity { get; set; }
         [BsonIgnore][DisplayName("Total Price")]public float TotalPrice => Price * Quantity;

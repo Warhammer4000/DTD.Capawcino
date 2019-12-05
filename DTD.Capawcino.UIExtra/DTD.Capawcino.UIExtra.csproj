@@ -126,6 +126,10 @@
     <None Include="Resources\add.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DTD.Capawcino.ApplicationControllers\DTD.Capawcino.ApplicationControllers.csproj">
+      <Project>{ddaaefcb-e985-439f-92a0-ef1a60f703dc}</Project>
+      <Name>DTD.Capawcino.ApplicationControllers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DTD.Capawcino.DatabaseManager\DTD.Capawcino.DatabaseManager.csproj">
       <Project>{33FE2EAA-FDC3-41A1-9AC8-1E6572BF6FA2}</Project>
       <Name>DTD.Capawcino.DatabaseManager</Name>
