@@ -8,5 +8,6 @@
         public static string TypeTable = "Types";
         public static string TagsTable = "Tags";
         public static string ClientsTable = "Clients";
+        public static string BusinessConfigTable = "BusinessConfigs";
     }
 }

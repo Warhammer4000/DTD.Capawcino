@@ -28,11 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.SalesLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.NameBox = new System.Windows.Forms.TextBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.TypeFilterCombo = new System.Windows.Forms.ComboBox();
             this.BillBox = new System.Windows.Forms.GroupBox();
             this.Billpanel = new System.Windows.Forms.Panel();
             this.ProductsBox = new System.Windows.Forms.GroupBox();
@@ -51,7 +56,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.GrandTotal = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.VatPanel = new System.Windows.Forms.Panel();
+            this.VatPercentLable = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.VatTotal = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -88,17 +94,14 @@
             this.MemberCheckBox = new System.Windows.Forms.CheckBox();
             this.NewBill = new System.Windows.Forms.Button();
             this.PrintButton = new System.Windows.Forms.Button();
-            this.SalesLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.TypeFilterCombo = new System.Windows.Forms.ComboBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.NameBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.BillBox.SuspendLayout();
             this.Billpanel.SuspendLayout();
             this.ProductsBox.SuspendLayout();
@@ -108,7 +111,7 @@
             this.CashTemplate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CashNumeric)).BeginInit();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.VatPanel.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PercentNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FlatNumeric)).BeginInit();
@@ -122,8 +125,6 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -161,6 +162,17 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Products";
             // 
+            // SalesLayoutPanel
+            // 
+            this.SalesLayoutPanel.AutoScroll = true;
+            this.SalesLayoutPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SalesLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SalesLayoutPanel.Location = new System.Drawing.Point(5, 113);
+            this.SalesLayoutPanel.Name = "SalesLayoutPanel";
+            this.SalesLayoutPanel.Padding = new System.Windows.Forms.Padding(10);
+            this.SalesLayoutPanel.Size = new System.Drawing.Size(588, 753);
+            this.SalesLayoutPanel.TabIndex = 4;
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.groupBox7);
@@ -174,6 +186,47 @@
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Filters";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.NameBox);
+            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox7.Location = new System.Drawing.Point(135, 20);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(215, 63);
+            this.groupBox7.TabIndex = 6;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Name";
+            // 
+            // NameBox
+            // 
+            this.NameBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameBox.Location = new System.Drawing.Point(3, 20);
+            this.NameBox.Name = "NameBox";
+            this.NameBox.Size = new System.Drawing.Size(209, 35);
+            this.NameBox.TabIndex = 0;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.TypeFilterCombo);
+            this.groupBox6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox6.Location = new System.Drawing.Point(3, 20);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(132, 63);
+            this.groupBox6.TabIndex = 5;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Type";
+            // 
+            // TypeFilterCombo
+            // 
+            this.TypeFilterCombo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TypeFilterCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TypeFilterCombo.FormattingEnabled = true;
+            this.TypeFilterCombo.Location = new System.Drawing.Point(3, 20);
+            this.TypeFilterCombo.Name = "TypeFilterCombo";
+            this.TypeFilterCombo.Size = new System.Drawing.Size(126, 37);
+            this.TypeFilterCombo.TabIndex = 5;
             // 
             // BillBox
             // 
@@ -221,7 +274,7 @@
             this.BillLayoutPanel.Controls.Add(this.panel8);
             this.BillLayoutPanel.Controls.Add(this.panel7);
             this.BillLayoutPanel.Controls.Add(this.panel3);
-            this.BillLayoutPanel.Controls.Add(this.panel2);
+            this.BillLayoutPanel.Controls.Add(this.VatPanel);
             this.BillLayoutPanel.Controls.Add(this.panel4);
             this.BillLayoutPanel.Controls.Add(this.TotalPanel);
             this.BillLayoutPanel.Controls.Add(this.DatagridView);
@@ -404,26 +457,39 @@
             this.GrandTotal.TabIndex = 0;
             this.GrandTotal.Text = "0";
             // 
-            // panel2
+            // VatPanel
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.VatTotal);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 434);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(493, 29);
-            this.panel2.TabIndex = 74;
+            this.VatPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.VatPanel.Controls.Add(this.VatPercentLable);
+            this.VatPanel.Controls.Add(this.label3);
+            this.VatPanel.Controls.Add(this.VatTotal);
+            this.VatPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.VatPanel.Location = new System.Drawing.Point(0, 434);
+            this.VatPanel.Name = "VatPanel";
+            this.VatPanel.Size = new System.Drawing.Size(493, 29);
+            this.VatPanel.TabIndex = 74;
+            // 
+            // VatPercentLable
+            // 
+            this.VatPercentLable.AutoSize = true;
+            this.VatPercentLable.Dock = System.Windows.Forms.DockStyle.Right;
+            this.VatPercentLable.Location = new System.Drawing.Point(388, 0);
+            this.VatPercentLable.Name = "VatPercentLable";
+            this.VatPercentLable.Size = new System.Drawing.Size(35, 24);
+            this.VatPercentLable.TabIndex = 76;
+            this.VatPercentLable.Text = "0%";
+            this.VatPercentLable.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label3.Location = new System.Drawing.Point(376, 0);
+            this.label3.Location = new System.Drawing.Point(423, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 24);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Vat(+15%)";
+            this.label3.Size = new System.Drawing.Size(48, 24);
+            this.label3.TabIndex = 75;
+            this.label3.Text = "VAT";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // VatTotal
             // 
@@ -432,7 +498,7 @@
             this.VatTotal.Location = new System.Drawing.Point(471, 0);
             this.VatTotal.Name = "VatTotal";
             this.VatTotal.Size = new System.Drawing.Size(20, 24);
-            this.VatTotal.TabIndex = 0;
+            this.VatTotal.TabIndex = 72;
             this.VatTotal.Text = "0";
             // 
             // panel4
@@ -570,23 +636,23 @@
             this.DatagridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.DatagridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DatagridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DatagridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DatagridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DatagridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DatagridView.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DatagridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.DatagridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.DatagridView.GridColor = System.Drawing.Color.SlateBlue;
             this.DatagridView.Location = new System.Drawing.Point(0, 205);
@@ -631,9 +697,9 @@
             this.groupBox3.Controls.Add(this.None);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(5, 83);
+            this.groupBox3.Location = new System.Drawing.Point(5, 90);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(197, 61);
+            this.groupBox3.Size = new System.Drawing.Size(197, 54);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Services";
@@ -645,7 +711,7 @@
             this.radioButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.radioButton2.Location = new System.Drawing.Point(124, 19);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(80, 39);
+            this.radioButton2.Size = new System.Drawing.Size(80, 32);
             this.radioButton2.TabIndex = 2;
             this.radioButton2.Text = "Discount";
             this.radioButton2.UseVisualStyleBackColor = true;
@@ -657,7 +723,7 @@
             this.radioButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.radioButton1.Location = new System.Drawing.Point(62, 19);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(62, 39);
+            this.radioButton1.Size = new System.Drawing.Size(62, 32);
             this.radioButton1.TabIndex = 1;
             this.radioButton1.Text = "Credit";
             this.radioButton1.UseVisualStyleBackColor = true;
@@ -670,7 +736,7 @@
             this.None.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.None.Location = new System.Drawing.Point(3, 19);
             this.None.Name = "None";
-            this.None.Size = new System.Drawing.Size(59, 39);
+            this.None.Size = new System.Drawing.Size(59, 32);
             this.None.TabIndex = 0;
             this.None.TabStop = true;
             this.None.Text = "None";
@@ -682,7 +748,7 @@
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(5, 61);
+            this.textBox2.Location = new System.Drawing.Point(5, 68);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(197, 22);
@@ -693,7 +759,7 @@
             this.label10.AutoSize = true;
             this.label10.Dock = System.Windows.Forms.DockStyle.Top;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(5, 44);
+            this.label10.Location = new System.Drawing.Point(5, 51);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(45, 17);
             this.label10.TabIndex = 2;
@@ -701,12 +767,11 @@
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.textBox1.Location = new System.Drawing.Point(5, 22);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(197, 22);
+            this.textBox1.Size = new System.Drawing.Size(197, 29);
             this.textBox1.TabIndex = 1;
             // 
             // label2
@@ -874,58 +939,6 @@
             this.PrintButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.PrintButton.UseVisualStyleBackColor = false;
             // 
-            // SalesLayoutPanel
-            // 
-            this.SalesLayoutPanel.AutoScroll = true;
-            this.SalesLayoutPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SalesLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SalesLayoutPanel.Location = new System.Drawing.Point(5, 113);
-            this.SalesLayoutPanel.Name = "SalesLayoutPanel";
-            this.SalesLayoutPanel.Padding = new System.Windows.Forms.Padding(10);
-            this.SalesLayoutPanel.Size = new System.Drawing.Size(588, 753);
-            this.SalesLayoutPanel.TabIndex = 4;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.TypeFilterCombo);
-            this.groupBox6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox6.Location = new System.Drawing.Point(3, 20);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(132, 63);
-            this.groupBox6.TabIndex = 5;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Type";
-            // 
-            // TypeFilterCombo
-            // 
-            this.TypeFilterCombo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TypeFilterCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TypeFilterCombo.FormattingEnabled = true;
-            this.TypeFilterCombo.Location = new System.Drawing.Point(3, 20);
-            this.TypeFilterCombo.Name = "TypeFilterCombo";
-            this.TypeFilterCombo.Size = new System.Drawing.Size(126, 37);
-            this.TypeFilterCombo.TabIndex = 5;
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.NameBox);
-            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox7.Location = new System.Drawing.Point(135, 20);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(215, 63);
-            this.groupBox7.TabIndex = 6;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Name";
-            // 
-            // NameBox
-            // 
-            this.NameBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.NameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NameBox.Location = new System.Drawing.Point(3, 20);
-            this.NameBox.Name = "NameBox";
-            this.NameBox.Size = new System.Drawing.Size(209, 35);
-            this.NameBox.TabIndex = 0;
-            // 
             // SalesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -943,6 +956,9 @@
             this.splitContainer1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
             this.BillBox.ResumeLayout(false);
             this.Billpanel.ResumeLayout(false);
             this.ProductsBox.ResumeLayout(false);
@@ -956,8 +972,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.CashNumeric)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.VatPanel.ResumeLayout(false);
+            this.VatPanel.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PercentNumeric)).EndInit();
@@ -979,9 +995,6 @@
             this.panel6.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -996,9 +1009,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label GrandTotal;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label VatTotal;
+        private System.Windows.Forms.Panel VatPanel;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.NumericUpDown PercentNumeric;
         private System.Windows.Forms.NumericUpDown FlatNumeric;
@@ -1051,5 +1062,8 @@
         private System.Windows.Forms.ComboBox TypeFilterCombo;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.TextBox NameBox;
+        private System.Windows.Forms.Label VatTotal;
+        private System.Windows.Forms.Label VatPercentLable;
+        private System.Windows.Forms.Label label3;
     }
 }

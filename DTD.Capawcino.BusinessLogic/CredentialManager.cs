@@ -61,6 +61,11 @@ namespace DTD.Capawcino.BusinessLogic
                 new CRUDManager().InsertRecord(DatabaseStrings.ClientsTable, new Client() { Name = "Default" });
             }
 
+            if (!new DatabaseQueries().CollectionExists(DatabaseStrings.BusinessConfigTable))
+            {
+                new CRUDManager().InsertRecord(DatabaseStrings.BusinessConfigTable, new BusinessConfigurations(){VatAmount = 0.15f});
+            }
+
         }
 
 

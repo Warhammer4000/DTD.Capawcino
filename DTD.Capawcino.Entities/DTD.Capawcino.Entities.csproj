@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="DataModels\Bill.cs" />
     <Compile Include="DatabaseStrings.cs" />
+    <Compile Include="DataModels\BusinessConfigurations.cs" />
     <Compile Include="DataModels\Client.cs" />
     <Compile Include="DataModels\Product.cs" />
     <Compile Include="ProductType.cs" />

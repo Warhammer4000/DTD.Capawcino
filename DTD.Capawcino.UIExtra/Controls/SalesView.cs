@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using DTD.Capawcino.ApplicationControllers.PrinterLogic;
+using DTD.Capawcino.BusinessLogic;
 using DTD.Capawcino.DatabaseManager;
 using DTD.Capawcino.Entities;
 using DTD.Capawcino.UIExtra.CustomUI;
@@ -21,15 +22,25 @@ namespace DTD.Capawcino.UIExtra
         {
             InitializeComponent();
             EventSubscription();
-            Bill = new Bill(DateTime.Now);
+            Bill = new Bill(DateTime.Now,BusinessLogicManager.BusinessConfigurations.VatAmount);
             Items = new CRUDManager().LoadRecords<Product>(DatabaseStrings.ProductTable);
             var typeDataFromDatabase = new CRUDManager().LoadRecords<ProductType>(DatabaseStrings.TypeTable);
             ProductTypes=new List<ProductType>(){ new ProductType() { Name = "All" } };
             ProductTypes.AddRange(typeDataFromDatabase);
+            TypeFilterCombo.DataSource = ProductTypes;
+
 
             NewBill_Click(new object(), new EventArgs());
-            InitializeSalesItems();
+            InitializeSalesItems(Items);
             //PrintButton.Click += PrintButton_Click;
+            TypeFilterCombo.SelectedIndexChanged += TypeFilterCombo_SelectedIndexChanged;
+        }
+
+        private void TypeFilterCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox combo = (ComboBox) sender;
+            string type = combo.Items[combo.SelectedIndex].ToString();
+            InitializeSalesItems(type != "All" ? Items.Where(r => r.ProductType.Name == type).ToList() : Items);
         }
 
         private void PrintButton_Click(object sender, EventArgs e)
@@ -40,7 +51,7 @@ namespace DTD.Capawcino.UIExtra
 
         private void NewBill_Click(object sender, EventArgs e)
         {
-            Bill = new Bill(DateTime.Now);
+            Bill = new Bill(DateTime.Now, BusinessLogicManager.BusinessConfigurations.VatAmount);
             DatagridView.DataSource = Bill.SalesItem;
             Bill.SalesItem.RemoveAt(0); //BUG WORKAROUND
             
@@ -78,18 +89,17 @@ namespace DTD.Capawcino.UIExtra
         }
 
 
-        private void InitializeSalesItems()
+        private void InitializeSalesItems(List<Product> products)
         {
             SalesLayoutPanel.Controls.Clear();
-            foreach (var item in Items)
+            foreach (var item in products)
             {
-                var UIElement = new SalesItemUI(item);
-                UIElement.AddToCartButtonClick += AddSalesItem;
-                SalesLayoutPanel.Controls.Add(UIElement);
+                var uiElement = new SalesItemUI(item);
+                uiElement.AddToCartButtonClick += AddSalesItem;
+                SalesLayoutPanel.Controls.Add(uiElement);
             }
 
-            TypeFilterCombo.DataSource = null;
-            TypeFilterCombo.DataSource = ProductTypes;
+            
         }
 
         private void InitalizeBill()
@@ -100,6 +110,14 @@ namespace DTD.Capawcino.UIExtra
             ButtonsColumnSetup(DatagridView);
             DatagridView.Columns[0].ReadOnly = true;
             DatagridView.Columns[1].ReadOnly = true;
+            if (BusinessLogicManager.BusinessConfigurations.VatAmount <= 0)
+            {
+                VatPanel.Visible = false;
+            }
+            else
+            {
+                VatPercentLable.Text = (int)(BusinessLogicManager.BusinessConfigurations.VatAmount * 100)+@"%";
+            }
             UpdateView();
         }
 
@@ -151,11 +169,14 @@ namespace DTD.Capawcino.UIExtra
             MemberCheckBox.CheckStateChanged += MemberCheckBox_CheckStateChanged;
             FlatNumeric.ValueChanged += FlatNumeric_ValueChanged;
             PercentNumeric.ValueChanged += FlatNumeric_ValueChanged;
+            
             CashNumeric.ValueChanged += CashNumeric_ValueChanged;
             Template1.Click += OnTemplateButtonClick;
             Template2.Click += OnTemplateButtonClick;
             Template3.Click += OnTemplateButtonClick;
         }
+
+       
 
         private void OnTemplateButtonClick(object sender, EventArgs e)
         {

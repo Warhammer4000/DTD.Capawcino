@@ -47,6 +47,13 @@ namespace DTD.Capawcino.App
             ContentPanel.Controls.Add(view);
         }
 
+        private void BusinessButton_Click(object sender, EventArgs e)
+        {
+            BusinessView view = new BusinessView() { Dock = DockStyle.Fill };
+            ContentPanel.Controls.Clear();
+            ContentPanel.Controls.Add(view);
+        }
+
         protected override void OnClosed(EventArgs e)
         {
             Owner.Show();

@@ -22,7 +22,8 @@ namespace DTD.Capawcino.Entities
         public float Discount => FlatDiscount ? DiscountValue : Total * DiscountValue / 100;
 
         [BsonIgnore]public float DiscountedTotal => Total - Discount;
-        public float Vat => DiscountedTotal * 0.15f;
+        private float _vatAmount;
+        public float Vat => DiscountedTotal * _vatAmount;
         public float GrandTotal => DiscountedTotal + Vat;
         public float Cash { get; set; }
         public float Change => Cash - GrandTotal;
@@ -30,9 +31,10 @@ namespace DTD.Capawcino.Entities
 
         public Bill() { }//for Serializer
 
-        public Bill(DateTime dateTime)
+        public Bill(DateTime dateTime,float vatAmount)
         {
             DateTime=dateTime;
+            _vatAmount = vatAmount;
             SalesItem=new List<SalesItem>();
             SalesItem.Add(new SalesItem(new Product() { Name = "Dummy" }));//BUG WORKAROUND
 

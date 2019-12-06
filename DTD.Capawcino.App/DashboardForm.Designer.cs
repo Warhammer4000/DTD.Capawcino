@@ -48,6 +48,8 @@
             this.SalesButton = new System.Windows.Forms.Button();
             this.ProductsButton = new System.Windows.Forms.Button();
             this.ClientsButton = new System.Windows.Forms.Button();
+            this.BusinessButton = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.ContentPanel = new System.Windows.Forms.Panel();
             this.MenuStrip.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -191,6 +193,8 @@
             this.flowLayoutPanel1.Controls.Add(this.SalesButton);
             this.flowLayoutPanel1.Controls.Add(this.ProductsButton);
             this.flowLayoutPanel1.Controls.Add(this.ClientsButton);
+            this.flowLayoutPanel1.Controls.Add(this.BusinessButton);
+            this.flowLayoutPanel1.Controls.Add(this.button2);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 24);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -266,6 +270,51 @@
             this.ClientsButton.UseVisualStyleBackColor = false;
             this.ClientsButton.Click += new System.EventHandler(this.ClientsButton_Click);
             // 
+            // BusinessButton
+            // 
+            this.BusinessButton.AutoSize = true;
+            this.BusinessButton.BackColor = System.Drawing.Color.LightCoral;
+            this.BusinessButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BusinessButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.BusinessButton.FlatAppearance.BorderSize = 2;
+            this.BusinessButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.HotPink;
+            this.BusinessButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DeepPink;
+            this.BusinessButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BusinessButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BusinessButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BusinessButton.Image = global::DTD.Capawcino.App.Properties.Resources.bag;
+            this.BusinessButton.Location = new System.Drawing.Point(411, 3);
+            this.BusinessButton.Name = "BusinessButton";
+            this.BusinessButton.Size = new System.Drawing.Size(132, 71);
+            this.BusinessButton.TabIndex = 13;
+            this.BusinessButton.Text = "Business";
+            this.BusinessButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BusinessButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.BusinessButton.UseVisualStyleBackColor = false;
+            this.BusinessButton.Click += new System.EventHandler(this.BusinessButton_Click);
+            // 
+            // button2
+            // 
+            this.button2.AutoSize = true;
+            this.button2.BackColor = System.Drawing.Color.LightCoral;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.button2.FlatAppearance.BorderSize = 2;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.HotPink;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DeepPink;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Image = global::DTD.Capawcino.App.Properties.Resources.profits;
+            this.button2.Location = new System.Drawing.Point(549, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(132, 71);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Statistics";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
             // ContentPanel
             // 
             this.ContentPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -321,5 +370,7 @@
         private System.Windows.Forms.Button ProductsButton;
         private System.Windows.Forms.Panel ContentPanel;
         private System.Windows.Forms.Button ClientsButton;
+        private System.Windows.Forms.Button BusinessButton;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -54,6 +54,12 @@
     <Compile Include="BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\BusinessView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\BusinessView.Designer.cs">
+      <DependentUpon>BusinessView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ClientsView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\BusinessView.resx">
+      <DependentUpon>BusinessView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\ClientsView.resx">
       <DependentUpon>ClientsView.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,6 +138,10 @@
     <ProjectReference Include="..\DTD.Capawcino.ApplicationControllers\DTD.Capawcino.ApplicationControllers.csproj">
       <Project>{ddaaefcb-e985-439f-92a0-ef1a60f703dc}</Project>
       <Name>DTD.Capawcino.ApplicationControllers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTD.Capawcino.BusinessLogic\DTD.Capawcino.BusinessLogic.csproj">
+      <Project>{9014691b-c012-47ab-bb68-075044a3abcf}</Project>
+      <Name>DTD.Capawcino.BusinessLogic</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTD.Capawcino.DatabaseManager\DTD.Capawcino.DatabaseManager.csproj">
       <Project>{33FE2EAA-FDC3-41A1-9AC8-1E6572BF6FA2}</Project>
