@@ -18,7 +18,7 @@ namespace DTD.Capawcino.UIExtra.Controls
         private List<Client> Clients;
 
 
-        public ClientsView()
+        internal ClientsView()
         {
             InitializeComponent();
             EventSubscription();

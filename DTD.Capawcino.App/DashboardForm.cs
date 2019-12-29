@@ -14,10 +14,13 @@ namespace DTD.Capawcino.App
 {
     public partial class DashboardForm : Form
     {
+        private readonly ViewFactory _viewFactory;
+
         public DashboardForm()
         {
             InitializeComponent();
-            SalesButton_Click(new object(), new EventArgs());
+            _viewFactory=new ViewFactory();
+            NavButton_Click(new Button(){Name = "sales"}, new EventArgs());
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -25,40 +28,23 @@ namespace DTD.Capawcino.App
             Close();
         }
 
-        private void ProductsButton_Click(object sender, EventArgs e)
+        private void NavButton_Click(object sender, EventArgs e)
         {
-            ProductsView view=new ProductsView(){Dock = DockStyle.Fill};
+            Button button = (Button) sender;
+
+            BaseControl view = _viewFactory.GetView(button.Name);
+
+            view.Dock = DockStyle.Fill;
             ContentPanel.Controls.Clear();
             ContentPanel.Controls.Add(view);
         }
 
-        private void SalesButton_Click(object sender, EventArgs e)
-        {
-            SalesView view = new SalesView() { Dock = DockStyle.Fill };
-            ContentPanel.Controls.Clear();
-            ContentPanel.Controls.Add(view);
-        }
-
-
-        private void ClientsButton_Click(object sender, EventArgs e)
-        {
-            ClientsView view = new ClientsView() { Dock = DockStyle.Fill };
-            ContentPanel.Controls.Clear();
-            ContentPanel.Controls.Add(view);
-        }
-
-        private void BusinessButton_Click(object sender, EventArgs e)
-        {
-            BusinessView view = new BusinessView() { Dock = DockStyle.Fill };
-            ContentPanel.Controls.Clear();
-            ContentPanel.Controls.Add(view);
-        }
+     
 
         protected override void OnClosed(EventArgs e)
         {
             Owner.Show();
             base.OnClosed(e);
-           
         }
 
         

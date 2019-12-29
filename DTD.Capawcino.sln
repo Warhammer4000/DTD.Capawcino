@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTD.Capawcino.BusinessLogic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTD.Capawcino.ApplicationControllers", "DTD.Capawcino.ApplicationControllers\DTD.Capawcino.ApplicationControllers.csproj", "{DDAAEFCB-E985-439F-92A0-EF1A60F703DC}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESCPOS_NET", "ESCPOS_NET\ESCPOS_NET.csproj", "{2821AE89-77AC-4491-B1CE-8D6ED08E59F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{DDAAEFCB-E985-439F-92A0-EF1A60F703DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDAAEFCB-E985-439F-92A0-EF1A60F703DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDAAEFCB-E985-439F-92A0-EF1A60F703DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2821AE89-77AC-4491-B1CE-8D6ED08E59F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2821AE89-77AC-4491-B1CE-8D6ED08E59F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2821AE89-77AC-4491-B1CE-8D6ED08E59F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2821AE89-77AC-4491-B1CE-8D6ED08E59F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

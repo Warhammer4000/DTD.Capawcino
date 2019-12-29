@@ -9,7 +9,7 @@ namespace DTD.Capawcino.UIExtra
     public partial class BusinessView : BaseControl
     {
         private BusinessConfigurations BusinessConfigurations;
-        public BusinessView()
+        internal BusinessView()
         {
             InitializeComponent();
             BusinessConfigurations = BusinessLogicManager.BusinessConfigurations;

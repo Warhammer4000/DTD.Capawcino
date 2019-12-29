@@ -33,10 +33,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.LoginButton = new System.Windows.Forms.Button();
+            this.LoginLable = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // NameLable
             // 
+            this.NameLable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.NameLable.AutoSize = true;
             this.NameLable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NameLable.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -48,6 +50,7 @@
             // 
             // NameTextBox
             // 
+            this.NameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.NameTextBox.BackColor = System.Drawing.Color.Silver;
             this.NameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.NameTextBox.Location = new System.Drawing.Point(20, 93);
@@ -59,6 +62,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label1.AutoSize = true;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -70,6 +74,7 @@
             // 
             // PasswordTextBox
             // 
+            this.PasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.PasswordTextBox.BackColor = System.Drawing.Color.Silver;
             this.PasswordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.PasswordTextBox.Location = new System.Drawing.Point(20, 175);
@@ -83,34 +88,49 @@
             // 
             // LoginButton
             // 
-            this.LoginButton.BackColor = System.Drawing.SystemColors.Highlight;
-            this.LoginButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LoginButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.LoginButton.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.LoginButton.FlatAppearance.BorderSize = 0;
             this.LoginButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PowderBlue;
             this.LoginButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Aquamarine;
             this.LoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LoginButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LoginButton.Location = new System.Drawing.Point(20, 504);
+            this.LoginButton.Location = new System.Drawing.Point(20, 256);
             this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(374, 40);
+            this.LoginButton.Size = new System.Drawing.Size(372, 40);
             this.LoginButton.TabIndex = 8;
             this.LoginButton.Text = "Login";
             this.LoginButton.UseVisualStyleBackColor = false;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
+            // 
+            // LoginLable
+            // 
+            this.LoginLable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.LoginLable.AutoSize = true;
+            this.LoginLable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoginLable.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.LoginLable.Location = new System.Drawing.Point(161, 20);
+            this.LoginLable.Name = "LoginLable";
+            this.LoginLable.Size = new System.Drawing.Size(67, 24);
+            this.LoginLable.TabIndex = 9;
+            this.LoginLable.Text = "LOGIN";
+            this.LoginLable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LoginForm
             // 
             this.AcceptButton = this.LoginButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.DarkCyan;
+            this.BackColor = System.Drawing.Color.Crimson;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(414, 564);
+            this.ClientSize = new System.Drawing.Size(412, 316);
+            this.Controls.Add(this.LoginLable);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.NameLable);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(6);
@@ -118,7 +138,8 @@
             this.Name = "LoginForm";
             this.Padding = new System.Windows.Forms.Padding(20);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login";
+            this.Text = "Capawcino POS";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,6 +151,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.Button LoginButton;
+        private System.Windows.Forms.Label LoginLable;
     }
 }
 

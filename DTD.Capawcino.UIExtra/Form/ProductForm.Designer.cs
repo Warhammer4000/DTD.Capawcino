@@ -35,6 +35,8 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.TagBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.GrandTotalNumeric = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.Total = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
@@ -48,22 +50,21 @@
             this.CostNumeric = new System.Windows.Forms.NumericUpDown();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Percent = new System.Windows.Forms.RadioButton();
+            this.Flat = new System.Windows.Forms.RadioButton();
             this.ProfitValue = new System.Windows.Forms.NumericUpDown();
             this.Profit = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.GrandTotalNumeric = new System.Windows.Forms.NumericUpDown();
-            this.Flat = new System.Windows.Forms.RadioButton();
-            this.Percent = new System.Windows.Forms.RadioButton();
+            this.DiscountAmount = new System.Windows.Forms.NumericUpDown();
+            this.DiscountValue = new System.Windows.Forms.NumericUpDown();
             this.DiscountBox = new System.Windows.Forms.GroupBox();
             this.PercentDiscount = new System.Windows.Forms.RadioButton();
             this.FlatDiscountButton = new System.Windows.Forms.RadioButton();
-            this.DiscountValue = new System.Windows.Forms.NumericUpDown();
-            this.DiscountAmount = new System.Windows.Forms.NumericUpDown();
             this.PicturePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrandTotalNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Total)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Royalty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CostNumeric)).BeginInit();
@@ -72,10 +73,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ProfitValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Profit)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GrandTotalNumeric)).BeginInit();
-            this.DiscountBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DiscountValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DiscountAmount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DiscountValue)).BeginInit();
+            this.DiscountBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // PicturePanel
@@ -205,6 +205,35 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(338, 591);
             this.tableLayoutPanel1.TabIndex = 24;
+            // 
+            // GrandTotalNumeric
+            // 
+            this.GrandTotalNumeric.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GrandTotalNumeric.Enabled = false;
+            this.GrandTotalNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GrandTotalNumeric.Location = new System.Drawing.Point(172, 488);
+            this.GrandTotalNumeric.Maximum = new decimal(new int[] {
+            9999990,
+            0,
+            0,
+            0});
+            this.GrandTotalNumeric.Name = "GrandTotalNumeric";
+            this.GrandTotalNumeric.ReadOnly = true;
+            this.GrandTotalNumeric.Size = new System.Drawing.Size(155, 29);
+            this.GrandTotalNumeric.TabIndex = 21;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(11, 485);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(155, 35);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Grand Total";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
@@ -370,6 +399,34 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select One";
             // 
+            // Percent
+            // 
+            this.Percent.AutoSize = true;
+            this.Percent.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Percent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Percent.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Percent.Location = new System.Drawing.Point(3, 44);
+            this.Percent.Name = "Percent";
+            this.Percent.Size = new System.Drawing.Size(149, 28);
+            this.Percent.TabIndex = 1;
+            this.Percent.Text = "Percent";
+            this.Percent.UseVisualStyleBackColor = true;
+            // 
+            // Flat
+            // 
+            this.Flat.AutoSize = true;
+            this.Flat.Checked = true;
+            this.Flat.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Flat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Flat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Flat.Location = new System.Drawing.Point(3, 16);
+            this.Flat.Name = "Flat";
+            this.Flat.Size = new System.Drawing.Size(149, 28);
+            this.Flat.TabIndex = 0;
+            this.Flat.TabStop = true;
+            this.Flat.Text = "Flat";
+            this.Flat.UseVisualStyleBackColor = true;
+            // 
             // ProfitValue
             // 
             this.ProfitValue.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -426,62 +483,35 @@
             this.panel2.Size = new System.Drawing.Size(155, 141);
             this.panel2.TabIndex = 18;
             // 
-            // label8
+            // DiscountAmount
             // 
-            this.label8.AutoSize = true;
-            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(11, 485);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(155, 35);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "Grand Total";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // GrandTotalNumeric
-            // 
-            this.GrandTotalNumeric.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GrandTotalNumeric.Enabled = false;
-            this.GrandTotalNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GrandTotalNumeric.Location = new System.Drawing.Point(172, 488);
-            this.GrandTotalNumeric.Maximum = new decimal(new int[] {
+            this.DiscountAmount.Dock = System.Windows.Forms.DockStyle.Top;
+            this.DiscountAmount.Enabled = false;
+            this.DiscountAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DiscountAmount.Location = new System.Drawing.Point(5, 109);
+            this.DiscountAmount.Maximum = new decimal(new int[] {
             9999990,
             0,
             0,
             0});
-            this.GrandTotalNumeric.Name = "GrandTotalNumeric";
-            this.GrandTotalNumeric.ReadOnly = true;
-            this.GrandTotalNumeric.Size = new System.Drawing.Size(155, 29);
-            this.GrandTotalNumeric.TabIndex = 21;
+            this.DiscountAmount.Name = "DiscountAmount";
+            this.DiscountAmount.ReadOnly = true;
+            this.DiscountAmount.Size = new System.Drawing.Size(145, 29);
+            this.DiscountAmount.TabIndex = 10;
             // 
-            // Flat
+            // DiscountValue
             // 
-            this.Flat.AutoSize = true;
-            this.Flat.Checked = true;
-            this.Flat.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Flat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Flat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Flat.Location = new System.Drawing.Point(3, 16);
-            this.Flat.Name = "Flat";
-            this.Flat.Size = new System.Drawing.Size(149, 28);
-            this.Flat.TabIndex = 0;
-            this.Flat.TabStop = true;
-            this.Flat.Text = "Flat";
-            this.Flat.UseVisualStyleBackColor = true;
-            // 
-            // Percent
-            // 
-            this.Percent.AutoSize = true;
-            this.Percent.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Percent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Percent.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Percent.Location = new System.Drawing.Point(3, 44);
-            this.Percent.Name = "Percent";
-            this.Percent.Size = new System.Drawing.Size(149, 28);
-            this.Percent.TabIndex = 1;
-            this.Percent.Text = "Percent";
-            this.Percent.UseVisualStyleBackColor = true;
+            this.DiscountValue.Dock = System.Windows.Forms.DockStyle.Top;
+            this.DiscountValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DiscountValue.Location = new System.Drawing.Point(5, 80);
+            this.DiscountValue.Maximum = new decimal(new int[] {
+            9999990,
+            0,
+            0,
+            0});
+            this.DiscountValue.Name = "DiscountValue";
+            this.DiscountValue.Size = new System.Drawing.Size(145, 29);
+            this.DiscountValue.TabIndex = 9;
             // 
             // DiscountBox
             // 
@@ -524,36 +554,6 @@
             this.FlatDiscountButton.Text = "Flat";
             this.FlatDiscountButton.UseVisualStyleBackColor = true;
             // 
-            // DiscountValue
-            // 
-            this.DiscountValue.Dock = System.Windows.Forms.DockStyle.Top;
-            this.DiscountValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DiscountValue.Location = new System.Drawing.Point(5, 80);
-            this.DiscountValue.Maximum = new decimal(new int[] {
-            9999990,
-            0,
-            0,
-            0});
-            this.DiscountValue.Name = "DiscountValue";
-            this.DiscountValue.Size = new System.Drawing.Size(145, 29);
-            this.DiscountValue.TabIndex = 9;
-            // 
-            // DiscountAmount
-            // 
-            this.DiscountAmount.Dock = System.Windows.Forms.DockStyle.Top;
-            this.DiscountAmount.Enabled = false;
-            this.DiscountAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DiscountAmount.Location = new System.Drawing.Point(5, 109);
-            this.DiscountAmount.Maximum = new decimal(new int[] {
-            9999990,
-            0,
-            0,
-            0});
-            this.DiscountAmount.Name = "DiscountAmount";
-            this.DiscountAmount.ReadOnly = true;
-            this.DiscountAmount.Size = new System.Drawing.Size(145, 29);
-            this.DiscountAmount.TabIndex = 10;
-            // 
             // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -568,11 +568,13 @@
             this.Name = "ProductForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Product";
+            this.TopMost = true;
             this.PicturePanel.ResumeLayout(false);
             this.PicturePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrandTotalNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Total)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Royalty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CostNumeric)).EndInit();
@@ -584,11 +586,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.Profit)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GrandTotalNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DiscountAmount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DiscountValue)).EndInit();
             this.DiscountBox.ResumeLayout(false);
             this.DiscountBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DiscountValue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DiscountAmount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

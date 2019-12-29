@@ -14,7 +14,7 @@ namespace DTD.Capawcino.UIExtra.Controls
         public Product SelectedProduct;
 
 
-        public ProductsView()
+        internal ProductsView()
         {
             InitializeComponent();
             UpdateGrid();

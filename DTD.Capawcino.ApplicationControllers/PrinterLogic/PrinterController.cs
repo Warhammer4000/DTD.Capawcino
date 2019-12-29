@@ -1,83 +1,91 @@
 ﻿using System.Drawing;
 using System.Drawing.Printing;
+using System.IO;
 using System.Text;
+using System.Windows.Forms;
 using DTD.Capawcino.Entities;
+using ESCPOS_NET;
+using ESCPOS_NET.Emitters;
+using ESCPOS_NET.Utilities;
 
 namespace DTD.Capawcino.ApplicationControllers.PrinterLogic
 {
     public class PrinterController
     {
         private Bill Bill { get; set; }
+        private string LogoPath { get; set; }
+        private string CompanyName { get; set; }
+        private string CompanyLocation { get; set; }
+        private string CompanyContactInfo { get; set; }
+
+
+
+        private  BasePrinter _printer;
+        private  ICommandEmitter _e;
+
 
         public void PrintReceiptForTransaction(Bill bill)
         {
             Bill = bill;
-            PrintDocument recordDoc = new PrintDocument {DocumentName = "Receipt"};
-
-            recordDoc.PrintPage += PrintReceiptPage; // function below
-            recordDoc.PrintController = new StandardPrintController(); // hides status dialog popup
-            // Comment if debugging 
-            PrinterSettings ps = new PrinterSettings();
-            ps.PrinterName = "EPSON TM-T20II Receipt";
-            recordDoc.PrinterSettings = ps;
-            
-            recordDoc.Print();
-            // --------------------------------------
-
-            // Uncomment if debugging - shows dialog instead
-            //PrintPreviewDialog printPrvDlg = new PrintPreviewDialog();
-            //printPrvDlg.Document = recordDoc;
-            //printPrvDlg.Width = 1200;
-            //printPrvDlg.Height = 800;
-            //printPrvDlg.ShowDialog();
-            // --------------------------------------
-
-            recordDoc.Dispose();
+            _e=new EPSON();
+            CompanyName = "Capawcino Cat Cafe";
+            CompanyLocation = @"Capawcino Cat Cafe, House: C52, Block: C, Road: W1, Eastern Housing Pallabi, Dhaka 1216";
+            CompanyContactInfo = "01912995783";
+            LogoPath = @"C:\Users\BS_269\Downloads\cropped-bs-logo-1.png";
+            File.WriteAllBytes(@"C:\Users\BS_269\Desktop\New folder\bill.txt", Receipt(_e));
         }
 
-        private void PrintReceiptPage(object sender, PrintPageEventArgs e)
+        private void PrepareNetworkPrinter(string ip,string networkPort)
         {
-            float x = 10;
-            float y = 5;
-            float width = 270.0F; // max width I found through trial and error
-            float height = 0F;
+            _printer = new NetworkPrinter(ip, int.Parse(networkPort));
+            _e = new EPSON();
+        
+            _printer.Write(Receipt(_e));
+        
 
-            Font drawFontArial12Bold = new Font("Arial", 12, FontStyle.Bold);
-            Font drawFontArial10Regular = new Font("Arial", 10, FontStyle.Regular);
-            SolidBrush drawBrush = new SolidBrush(Color.Black);
+        }
 
-            // Set format of string.
-            StringFormat drawFormatCenter = new StringFormat {Alignment = StringAlignment.Center};
-            StringFormat drawFormatLeft = new StringFormat {Alignment = StringAlignment.Near};
-            StringFormat drawFormatRight = new StringFormat {Alignment = StringAlignment.Far};
+        private byte[] Receipt(ICommandEmitter e)
+        {
+            
+            byte[] data=ByteSplicer.Combine(
+                e.CenterAlign(),
+                e.PrintLine(),
+                e.PrintLine(CompanyName),
+                e.PrintLine(CompanyLocation),
+                e.PrintLine(CompanyContactInfo),
+                e.SetStyles(PrintStyle.Underline),
+                e.PrintLine("www.link.com"),
+                e.SetStyles(PrintStyle.None),
+                e.PrintLine(),
+                e.LeftAlign(),
+                e.PrintLine()
+            );
 
-            // Draw string to screen.
-            string text = Bill.DateTime.ToLongDateString();
-            e.Graphics.DrawString(text, drawFontArial12Bold, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-            y += e.Graphics.MeasureString(text, drawFontArial12Bold).Height;
-
-            text = "Company Name";
-            e.Graphics.DrawString(text, drawFontArial12Bold, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-            y += e.Graphics.MeasureString(text, drawFontArial12Bold).Height;
-
-
-            text = "Address";
-            e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatCenter);
-            y += e.Graphics.MeasureString(text, drawFontArial12Bold).Height;
+            
+            data = ByteSplicer.Combine(data,
+                e.PrintLine(
+                    $"{"Product",-40}{"Price",6}{"Quantity",9}{"Total",9}"));
 
             foreach (var salesItem in Bill.SalesItem)
             {
-                text = new StringBuilder().Append(salesItem.Name).Append(salesItem.Quantity).Append(salesItem.TotalPrice).ToString();
-                e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatLeft);
-                y += e.Graphics.MeasureString(text, drawFontArial10Regular).Height;
+                data = ByteSplicer.Combine(data,
+                    e.PrintLine(
+                        $"{salesItem.Name,-40}{salesItem.Price,6}{salesItem.Quantity,9}{salesItem.TotalPrice,9:N2}"));
             }
 
-            text = new StringBuilder().Append("Total").Append(Bill.GrandTotal).ToString();
-            e.Graphics.DrawString(text, drawFontArial10Regular, drawBrush, new RectangleF(x, y, width, height), drawFormatRight);
-            y += e.Graphics.MeasureString(text, drawFontArial12Bold).Height;
 
+            data = ByteSplicer.Combine(data,
+                e.PrintLine($"{"Total",-40}{Bill.Total,24:N2}")
+                );
+
+            e.LeftAlign();
+            e.PrintLine();
+            e.PrintLine();
+            e.PartialCut();
             
-            // ... and so on
+            return data;
         }
+
     }
 }

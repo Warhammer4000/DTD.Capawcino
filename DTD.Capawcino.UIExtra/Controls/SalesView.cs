@@ -18,7 +18,7 @@ namespace DTD.Capawcino.UIExtra
         private List<Product> Items { get; }
         private List<ProductType> ProductTypes { get; }
 
-        public SalesView()
+        internal SalesView()
         {
             InitializeComponent();
             EventSubscription();
