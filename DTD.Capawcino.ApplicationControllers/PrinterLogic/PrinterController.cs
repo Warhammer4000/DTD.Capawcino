@@ -1,12 +1,9 @@
 ﻿using System.Drawing;
 using System.Drawing.Printing;
-using System.IO;
-using System.Text;
+
 using System.Windows.Forms;
 using DTD.Capawcino.Entities;
-using ESCPOS_NET;
-using ESCPOS_NET.Emitters;
-using ESCPOS_NET.Utilities;
+
 
 namespace DTD.Capawcino.ApplicationControllers.PrinterLogic
 {
@@ -20,72 +17,85 @@ namespace DTD.Capawcino.ApplicationControllers.PrinterLogic
 
 
 
-        private  BasePrinter _printer;
-        private  ICommandEmitter _e;
 
 
         public void PrintReceiptForTransaction(Bill bill)
         {
             Bill = bill;
-            _e=new EPSON();
+   
             CompanyName = "Capawcino Cat Cafe";
             CompanyLocation = @"Capawcino Cat Cafe, House: C52, Block: C, Road: W1, Eastern Housing Pallabi, Dhaka 1216";
             CompanyContactInfo = "01912995783";
             LogoPath = @"C:\Users\BS_269\Downloads\cropped-bs-logo-1.png";
-            File.WriteAllBytes(@"C:\Users\BS_269\Desktop\New folder\bill.txt", Receipt(_e));
+            PrintReceipt();
+
+   
         }
 
-        private void PrepareNetworkPrinter(string ip,string networkPort)
+       
+
+     
+
+        private void PrintReceipt()
         {
-            _printer = new NetworkPrinter(ip, int.Parse(networkPort));
-            _e = new EPSON();
-        
-            _printer.Write(Receipt(_e));
-        
+            PrintDialog printDialog=new PrintDialog();
+            PrintDocument printDocument=new PrintDocument();
+
+            printDialog.Document = printDocument;
+            printDocument.PrintPage += PrintDocument_PrintPage;
+            DialogResult result = printDialog.ShowDialog();
+            if (result==DialogResult.OK)
+            {
+                printDocument.Print();
+            }
 
         }
 
-        private byte[] Receipt(ICommandEmitter e)
+        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
-            
-            byte[] data=ByteSplicer.Combine(
-                e.CenterAlign(),
-                e.PrintLine(),
-                e.PrintLine(CompanyName),
-                e.PrintLine(CompanyLocation),
-                e.PrintLine(CompanyContactInfo),
-                e.SetStyles(PrintStyle.Underline),
-                e.PrintLine("www.link.com"),
-                e.SetStyles(PrintStyle.None),
-                e.PrintLine(),
-                e.LeftAlign(),
-                e.PrintLine()
-            );
+            Graphics graphic = e.Graphics;
 
-            
-            data = ByteSplicer.Combine(data,
-                e.PrintLine(
-                    $"{"Product",-40}{"Price",6}{"Quantity",9}{"Total",9}"));
+            Font font=new Font("Courier New",12);
+            float fontHeight = font.GetHeight();
+            int startX = 10;
+            int startY = 10;
+            int offSet = 40;
+
+            var icon = Image.FromFile(LogoPath);
+            graphic.DrawImage(icon,new Point(startX,startY+offSet) );
+            offSet +=icon.Height + 5;
+
+            graphic.DrawString(CompanyName,new Font("Courier New",18),new SolidBrush(Color.Black),startX,startY+offSet );
+            offSet += (int)fontHeight + 5;
+
+            string header =
+                $"{"Name".PadRight(20)}{"Price".PadRight(8)}{"Quantity".PadRight(10)}{"Total".PadRight(8)}";
+            graphic.DrawString(header, new Font("Courier New", 18), new SolidBrush(Color.Black), startX, startY + offSet);
+
+            offSet += (int)fontHeight + 5;
+
+            graphic.DrawLine(new Pen(Color.Black),startX,startY+offSet,startX+1000,startY+offSet);
+
+            offSet += 5;
 
             foreach (var salesItem in Bill.SalesItem)
             {
-                data = ByteSplicer.Combine(data,
-                    e.PrintLine(
-                        $"{salesItem.Name,-40}{salesItem.Price,6}{salesItem.Quantity,9}{salesItem.TotalPrice,9:N2}"));
+                string details =
+                    $"{salesItem.Name.PadRight(20)}{salesItem.Price.ToString("N0").PadRight(8)}{salesItem.Quantity.ToString("N0").PadRight(10)}{salesItem.TotalPrice.ToString("N0").PadRight(8)}";
+                graphic.DrawString(details, new Font("Courier New", 18), new SolidBrush(Color.Black), startX, startY+offSet);
+                offSet += (int)fontHeight + 5;
+
             }
 
+            graphic.DrawLine(new Pen(Color.Black), startX, startY + offSet, startX + 1000, startY + offSet);
 
-            data = ByteSplicer.Combine(data,
-                e.PrintLine($"{"Total",-40}{Bill.Total,24:N2}")
-                );
+           // offSet += (int)fontHeight + 5;
 
-            e.LeftAlign();
-            e.PrintLine();
-            e.PrintLine();
-            e.PartialCut();
+            string total =
+                $"{"Total".PadRight(20)}{Bill.Total.ToString("N0").PadLeft(21)}";
+            graphic.DrawString(total, new Font("Courier New", 18), new SolidBrush(Color.Black), startX, startY + offSet);
             
-            return data;
-        }
 
+        }
     }
 }

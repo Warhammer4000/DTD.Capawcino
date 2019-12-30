@@ -51,10 +51,6 @@
       <Project>{0a70cc67-9a78-4bce-a7ab-0f81129a245d}</Project>
       <Name>DTD.Capawcino.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ESCPOS_NET\ESCPOS_NET.csproj">
-      <Project>{2821AE89-77AC-4491-B1CE-8D6ED08E59F9}</Project>
-      <Name>ESCPOS_NET</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
